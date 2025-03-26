@@ -1,0 +1,25 @@
+{% extends 'src/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="w-full h-screen overflow-auto flex justify-center py-16 items-start bg-zinc-50">
+
+        <div class="max-w-md w-full grid gap-8">
+            <div>
+                <a 
+                    href="{% url 'workspace' %}"
+                    class="w-16 mx-auto overflow-hidden block"    
+                >
+                    <img src="{% static 'images/logo.svg' %}" alt="OQU platforms logo" class="w-full">
+                </a>
+            </div>
+
+            <div class="px-6 py-12 bg-white rounded-xl border">
+                {% block auth_content %}
+                {% endblock auth_content %}
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

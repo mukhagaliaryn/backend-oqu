@@ -1,0 +1,35 @@
+{% extends 'src/layouts/account.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    {{ user.first_name }} {{ user.last_name }}
+{% endblock title %}
+
+
+{% block account_content %}
+<div class="max-w-2xl w-full grid gap-4">
+    <div class="border-b pb-4">
+        <h1 class="text-2xl font-semibold">Профиль</h1>
+        <span class="text-zinc-500">Негізгі персоналды мәліметтері</span>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="Profile Picture" class="w-24 h-24 rounded-full">
+        {% else %}
+            <div class="w-24 h-24 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-950 text-4xl">
+                {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
+            </div>
+        {% endif %}
+
+        {{ form|crispy }}
+
+        <button 
+            type="submit"
+            class="px-4 py-2 text-sm font-medium text-center text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500">
+            Сақтау
+        </button>
+    </form>
+</div>
+{% endblock account_content %}

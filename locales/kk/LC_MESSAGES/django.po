@@ -1,0 +1,476 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-19 16:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: apps/platform/accounts/forms/account.py:11
+#: apps/platform/accounts/forms/auth.py:11
+#: apps/platform/accounts/forms/auth.py:29 core/models/users.py:34
+msgid "email"
+msgstr "Электронды пошта"
+
+#: apps/platform/accounts/forms/account.py:16
+msgid "If you want to change your email, write to us!"
+msgstr "Егер сіз электрондық поштаңызды өзгерткіңіз келсе, бізге жазыңыз!"
+
+#: apps/platform/accounts/forms/account.py:19
+#: apps/platform/accounts/forms/auth.py:36 core/models/users.py:35
+msgid "username"
+msgstr "Пайдаланушы аты"
+
+#: apps/platform/accounts/forms/account.py:24
+msgid "If you want to change your username, write to us!"
+msgstr "Пайдаланушы атыңызды өзгерткіңіз келсе, бізге жазыңыз!"
+
+#: apps/platform/accounts/forms/account.py:27
+#: apps/platform/accounts/forms/auth.py:43 core/models/users.py:36
+msgid "First name"
+msgstr "Есімі"
+
+#: apps/platform/accounts/forms/account.py:30
+#: apps/platform/accounts/forms/auth.py:46
+msgid "Write your first name"
+msgstr "Өз атыңызды жазыңыз"
+
+#: apps/platform/accounts/forms/account.py:34
+#: apps/platform/accounts/forms/auth.py:50 core/models/users.py:37
+msgid "Last name"
+msgstr "Тегі"
+
+#: apps/platform/accounts/forms/account.py:37
+#: apps/platform/accounts/forms/auth.py:53
+msgid "Write your last name"
+msgstr "Фамилияңызды жазыңыз"
+
+#: apps/platform/accounts/forms/account.py:55 core/models/accounts.py:26
+msgid "Birthday"
+msgstr "Туылған күні"
+
+#: apps/platform/accounts/forms/account.py:68
+msgid "Old password"
+msgstr "Ескі құпиясөз"
+
+#: apps/platform/accounts/forms/account.py:74
+msgid "New password"
+msgstr "Жаңа құпиясөз"
+
+#: apps/platform/accounts/forms/account.py:80
+msgid "Confirm new password"
+msgstr "Жаңа құпиясөзді растаңыз"
+
+#: apps/platform/accounts/forms/auth.py:18
+#: apps/platform/accounts/forms/auth.py:57
+msgid "Password"
+msgstr "Құпиясөз"
+
+#: apps/platform/accounts/forms/auth.py:60
+msgid "Come up with a strong password"
+msgstr "Қауіпсіз пароль ойлап табыңыз"
+
+#: apps/platform/accounts/forms/auth.py:64
+msgid "Password confirm"
+msgstr "Құпиясөзді растау"
+
+#: apps/platform/accounts/forms/auth.py:67
+msgid "Repeat the password"
+msgstr "Құпиясөзді қайталаңыз"
+
+#: apps/platform/accounts/views/account.py:19
+msgid "Profile saved"
+msgstr "Профиль сақталды"
+
+#: apps/platform/accounts/views/account.py:40
+msgid "Account saved"
+msgstr "Аккаунт сақталды"
+
+#: apps/platform/accounts/views/account.py:83
+msgid "Password changed"
+msgstr "Құпиясөз өзгертілді"
+
+#: apps/platform/accounts/views/account.py:86
+msgid "Failed to change password"
+msgstr "Құпиясөзді өзгерту орындалмады"
+
+#: config/settings.py:144
+msgid "Kazakh"
+msgstr "Қазақша"
+
+#: config/settings.py:145
+msgid "Russian"
+msgstr "Русский"
+
+#: config/settings.py:146
+msgid "English"
+msgstr "English"
+
+#: core/admin/users.py:35
+msgid "Personal data"
+msgstr "Жеке деректер"
+
+#: core/admin/users.py:36
+msgid "Permissions"
+msgstr "Рұқсаттамалар"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Модельдер | Регистраторлар"
+
+#: core/models/accounts.py:11 core/models/accounts.py:21
+#: core/models/progress.py:11 core/models/progress.py:32
+#: core/models/progress.py:57 core/models/subscriptions.py:36
+#: core/models/subscriptions.py:68 core/models/users.py:68
+msgid "User"
+msgstr "Пайдаланушы"
+
+#: core/models/accounts.py:12
+msgid "Student"
+msgstr "Білім алушы"
+
+#: core/models/accounts.py:13
+msgid "Teacher"
+msgstr "Оқытушы"
+
+#: core/models/accounts.py:16
+msgid "Undefined"
+msgstr "Белгісіз"
+
+#: core/models/accounts.py:17
+msgid "Male"
+msgstr "Ер"
+
+#: core/models/accounts.py:18
+msgid "Female"
+msgstr "Әйел"
+
+#: core/models/accounts.py:23
+msgid "Account type"
+msgstr "Аккаунт түрі"
+
+#: core/models/accounts.py:27
+msgid "Gender"
+msgstr "Жынысы"
+
+#: core/models/accounts.py:28
+msgid "Bio"
+msgstr "Биография"
+
+#: core/models/accounts.py:34
+msgid "Account"
+msgstr "Аккаунт"
+
+#: core/models/accounts.py:35
+msgid "Accounts"
+msgstr "Аккаунттар"
+
+#: core/models/courses.py:10 core/models/courses.py:29
+#: core/models/courses.py:46 core/models/courses.py:59
+#: core/models/courses.py:95 core/models/subscriptions.py:12
+msgid "Name"
+msgstr "Атауы"
+
+#: core/models/courses.py:11 core/models/courses.py:30
+#: core/models/courses.py:47
+msgid "Key"
+msgstr "Кілттік сөз"
+
+#: core/models/courses.py:12 core/models/courses.py:31
+#: core/models/courses.py:96 core/models/lessons.py:25
+#: core/models/lessons.py:49 core/models/subscriptions.py:18
+msgid "Order"
+msgstr "Реттілік"
+
+#: core/models/courses.py:18 core/models/courses.py:27
+#: core/models/courses.py:62
+msgid "Category"
+msgstr "Категория"
+
+#: core/models/courses.py:19
+msgid "Categories"
+msgstr "Категориялар"
+
+#: core/models/courses.py:37 core/models/courses.py:66
+msgid "Subcategory"
+msgstr "Субкатегория"
+
+#: core/models/courses.py:38
+msgid "Subcategories"
+msgstr "Субкатегориялар"
+
+#: core/models/courses.py:53
+msgid "Language"
+msgstr "Тіл"
+
+#: core/models/courses.py:54 core/models/courses.py:71
+msgid "Languages"
+msgstr "Тілдер"
+
+#: core/models/courses.py:68
+msgid "Poster"
+msgstr "Постер"
+
+#: core/models/courses.py:69 core/models/lessons.py:20
+msgid "About"
+msgstr "Қысқа сипаттама"
+
+#: core/models/courses.py:70
+msgid "Description"
+msgstr "Толық сипаттама"
+
+#: core/models/courses.py:73
+msgid "Authors"
+msgstr "Авторлар"
+
+#: core/models/courses.py:76 core/models/lessons.py:21
+msgid "Date created"
+msgstr "Шыққан уақыты"
+
+#: core/models/courses.py:77 core/models/lessons.py:22
+#: core/models/subscriptions.py:43
+msgid "Last update"
+msgstr "Соңғы өзгеріс"
+
+#: core/models/courses.py:78
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: core/models/courses.py:84 core/models/courses.py:93
+#: core/models/lessons.py:14 core/models/progress.py:15
+msgid "Course"
+msgstr "Курс"
+
+#: core/models/courses.py:85
+msgid "Courses"
+msgstr "Курстар"
+
+#: core/models/courses.py:102 core/models/lessons.py:18
+#: core/models/progress.py:36
+msgid "Chapter"
+msgstr "Бөлім"
+
+#: core/models/courses.py:103
+msgid "Chapters"
+msgstr "Бөлімдер"
+
+#: core/models/lessons.py:11
+msgid "Title"
+msgstr "Тақырыбы"
+
+#: core/models/lessons.py:23
+msgid "Duration (min)"
+msgstr "Ұзақтығы (мин)"
+
+#: core/models/lessons.py:24
+msgid "Access"
+msgstr "Рұқсаттама"
+
+#: core/models/lessons.py:31 core/models/lessons.py:45
+#: core/models/progress.py:61
+msgid "Lesson"
+msgstr "Сабақ"
+
+#: core/models/lessons.py:32
+msgid "Lessons"
+msgstr "Сабақтар"
+
+#: core/models/lessons.py:39
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core/models/lessons.py:40
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: core/models/lessons.py:47
+msgid "URL type"
+msgstr "URL түрі"
+
+#: core/models/lessons.py:48
+msgid "URL"
+msgstr "URL сілтеме"
+
+#: core/models/lessons.py:52
+msgid "Video: {}"
+msgstr "Видео: {}"
+
+#: core/models/lessons.py:55
+msgid "Video"
+msgstr "Видео"
+
+#: core/models/lessons.py:56
+msgid "Videos"
+msgstr "Видеолар"
+
+#: core/models/progress.py:17 core/models/progress.py:42
+#: core/models/progress.py:67
+msgid "Is completed"
+msgstr ""
+
+#: core/models/progress.py:23 core/models/progress.py:40
+#: core/models/progress.py:65
+msgid "User course"
+msgstr "Пайдаланушының курсы"
+
+#: core/models/progress.py:24
+msgid "User courses"
+msgstr "Пайдаланушының курстары"
+
+#: core/models/progress.py:48
+msgid "User chapter"
+msgstr "Пайдаланушының бөлімі"
+
+#: core/models/progress.py:49
+msgid "User chapters"
+msgstr "Пайдаланушының бөлімдері"
+
+#: core/models/progress.py:73
+msgid "User lesson"
+msgstr "Пайдаланушының сабағы"
+
+#: core/models/progress.py:74
+msgid "User lessons"
+msgstr "Пайдаланушының сабақтары"
+
+#: core/models/subscriptions.py:13
+msgid "Price"
+msgstr "Бағасы"
+
+#: core/models/subscriptions.py:14
+msgid "Duration days"
+msgstr "Күндік ұзақтығы"
+
+#: core/models/subscriptions.py:15
+msgid "Is default"
+msgstr "Бастапқы"
+
+#: core/models/subscriptions.py:16
+msgid "Is unlimited"
+msgstr "Шексіз"
+
+#: core/models/subscriptions.py:17 core/models/subscriptions.py:42
+msgid "Is active"
+msgstr "Белсенділік"
+
+#: core/models/subscriptions.py:29
+msgid "Subscription"
+msgstr "Тарифтік план"
+
+#: core/models/subscriptions.py:30
+msgid "Subscriptions"
+msgstr "Тарифтік пландар"
+
+#: core/models/subscriptions.py:39 core/models/subscriptions.py:69
+msgid "Plan"
+msgstr "Тарифтік план"
+
+#: core/models/subscriptions.py:40
+msgid "Start date"
+msgstr "Басталған уақыты"
+
+#: core/models/subscriptions.py:41
+msgid "End date"
+msgstr "Аяқталған уақыты"
+
+#: core/models/subscriptions.py:56
+msgid "User subscription"
+msgstr "Пайдаланушының жазылымы"
+
+#: core/models/subscriptions.py:57
+msgid "User subscriptions"
+msgstr "Пайдаланушының жазылымдары"
+
+#: core/models/subscriptions.py:63
+msgid "Pending"
+msgstr "Күтілуде"
+
+#: core/models/subscriptions.py:64
+msgid "Approved"
+msgstr "Қабылданды"
+
+#: core/models/subscriptions.py:65
+msgid "Rejected"
+msgstr "Қабылданбады"
+
+#: core/models/subscriptions.py:70
+msgid "Amount"
+msgstr "Суммасы"
+
+#: core/models/subscriptions.py:71
+msgid "Payment date"
+msgstr "Төлем күні"
+
+#: core/models/subscriptions.py:72
+msgid "Status"
+msgstr "Статус"
+
+#: core/models/subscriptions.py:73
+msgid "Admin note"
+msgstr "Әкімші ескертпесі"
+
+#: core/models/subscriptions.py:79
+msgid "User payment"
+msgstr "Пайдаланушының төлемі"
+
+#: core/models/subscriptions.py:80
+msgid "User payments"
+msgstr "Пайдаланушының төлемдері"
+
+#: core/models/users.py:14
+msgid "The user must have an username"
+msgstr "Пайдаланушының аты болуы керек"
+
+#: core/models/users.py:16
+msgid "The user must have an email address"
+msgstr "Пайдаланушының электрондық пошта мекенжайы болуы керек"
+
+#: core/models/users.py:38
+msgid "Avatar"
+msgstr "Суреті"
+
+#: core/models/users.py:39
+msgid "Google avatar"
+msgstr "Google суреті"
+
+#: core/models/users.py:41
+msgid "staff status"
+msgstr "Қызметкер статусы"
+
+#: core/models/users.py:42
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+"Пайдаланушының қызметкер статусы, яғни осы администрация сайтына кіре "
+"алатынын белгілейді."
+
+#: core/models/users.py:45
+msgid "active"
+msgstr "Белсенділік"
+
+#: core/models/users.py:47
+msgid ""
+"Designates whether this user should be treated as active.Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Бұл пайдаланушыға белсенді ретінде қарау керек пе, әлде жоқ па, соны "
+"анықтайды."
+
+#: core/models/users.py:51
+msgid "date joined"
+msgstr "Тіркелген уақыты"
+
+#: core/models/users.py:69
+msgid "Users"
+msgstr "Пайдаланушылар"

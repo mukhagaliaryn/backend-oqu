@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} - OQU platforms</title>
+    <link rel="shortcut icon" href="{% static 'images/logo.svg' %}" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Tailwind + Flowbite -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {},
+                fontFamily: {
+                    inter: ['Inter Tight', 'sans-serif'],
+                },
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter overflow-hidden text-sm">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="fixed bottom-0 right-5 flex items-center p-4 mb-4 rounded-lg shadow {{ message.tags }}" role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="font-medium">
+                    {{ message }}
+                </span>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock content %}
+
+
+    <!-- JavaScript configs -->
+    <!-- ============================================================================================================================== -->
+    <!-- Flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".userCoursesSwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 1,
+            spaceBetween: 16,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            mousewheel: true,
+            keyboard: true,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                },
+                1280: {
+                    slidesPerView: 4
+                },
+                1536: {
+                    slidesPerView: 5
+                }
+            }
+        });
+    </script>
+</body>
+</html>

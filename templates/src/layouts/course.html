@@ -1,0 +1,78 @@
+{% extends 'src/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="h-screen">
+    <div class="w-full sticky top-0 w-full border-b">
+        <div class="h-12 flex justify-between items-center px-4">
+            <div class="flex items-center">
+                <a href="{% url 'workspace' %}" class="flex">
+                    <img src="{% static 'images/full-logo-white.svg' %}" class="w-16" alt="OQU platforms logo" />
+                </a>
+            </div>
+
+            <div class="flex items-center">
+                <div class="flex items-center ms-3">
+                    <div>
+                        <button type="button"
+                            class="flex text-sm bg-zinc-800 rounded-full focus:ring-4 focus:ring-zinc-300 dark:focus:ring-zinc-600"
+                            aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                            <span class="sr-only">Open user menu</span>
+                            {% if user.avatar %}
+                                <img 
+                                    class="w-8 h-8 rounded-full"
+                                    src="{% if request.user.avatar %}{{ request.user.avatar.url }}{% else %}https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg{% endif %}"
+                                    alt="user photo"
+                                    >
+                            {% else %}
+                                <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-950 text-base">
+                                    {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
+                                </div>
+                            {% endif %}
+                        </button>
+                    </div>
+
+                    <div class="z-50 hidden list-none bg-white divide-y divide-zinc-100 rounded-lg shadow-sm border"
+                        id="dropdown-user">
+                        <div class="px-4 py-3" role="none">
+                            <p class="text-sm text-zinc-900 dark:text-white" role="none">
+                                {{ request.user.first_name }} {{ request.user.last_name }}
+                            </p>
+                            <p class="text-sm font-medium text-zinc-900 truncate dark:text-zinc-300" role="none">
+                                {{ request.user.email }}
+                            </p>
+                        </div>
+                        <ul class="py-1" role="none">
+                            <li>
+                                <a href="{% url 'profile' %}"
+                                    class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                    role="menuitem">Профиль</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'account' %}"
+                                    class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                    role="menuitem">Аккаунт</a>
+                            </li>
+                            <li>
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button
+                                        class="block w-full text-left px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white">
+                                        Жүйеден шығу
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overflow-auto w-full" style="height: calc(100vh - 48px);">
+        {% block course_content %}
+        {% endblock course_content %}
+    </div>
+</div>
+{% endblock content %}
