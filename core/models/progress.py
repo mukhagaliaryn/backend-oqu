@@ -14,7 +14,7 @@ class UserCourse(models.Model):
         Course, on_delete=models.CASCADE,
         related_name='user_courses', verbose_name=_('Course')
     )
-    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -40,7 +40,7 @@ class UserChapter(models.Model):
         UserCourse, on_delete=models.CASCADE,
         related_name='user_chapters', verbose_name=_('User course')
     )
-    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -67,7 +67,7 @@ class UserLesson(models.Model):
         UserCourse, on_delete=models.CASCADE,
         related_name='user_lessons', verbose_name=_('User course')
     )
-    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -79,28 +79,29 @@ class UserLesson(models.Model):
         ordering = ('lesson__order', )
 
 
-# UserVideoContent
+# UserVideo
 class UserVideo(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
-        related_name='user_video_contents', verbose_name=_('User')
+        related_name='user_videos', verbose_name=_('User')
     )
     video = models.ForeignKey(
         Video, on_delete=models.CASCADE,
-        related_name='user_video_contents', verbose_name=_('Video')
+        related_name='user_video', verbose_name=_('Video')
     )
     user_lesson = models.ForeignKey(
         UserLesson, on_delete=models.CASCADE,
-        related_name='user_video_contents', verbose_name=_('User lesson')
+        related_name='user_video', verbose_name=_('User lesson')
     )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
-        return _('Video content: {} - User: {}').format(self.video, self.user)
+        return _('Video: {} - User: {}').format(self.video, self.user)
 
     class Meta:
         verbose_name = _('User video')
-        verbose_name_plural = _('User video contents')
+        verbose_name_plural = _('User videos')
         ordering = ('video__order', )
 
 
@@ -112,12 +113,13 @@ class UserText(models.Model):
     )
     text = models.ForeignKey(
         Text, on_delete=models.CASCADE,
-        related_name='user_texts', verbose_name=_('Text')
+        related_name='user_text', verbose_name=_('Text')
     )
     user_lesson = models.ForeignKey(
         UserLesson, on_delete=models.CASCADE,
-        related_name='user_texts', verbose_name=_('User lesson')
+        related_name='user_text', verbose_name=_('User lesson')
     )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -129,7 +131,7 @@ class UserText(models.Model):
         ordering = ('text__order', )
 
 
-# UserTestContent
+# UserTest
 class UserTest(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
@@ -137,22 +139,23 @@ class UserTest(models.Model):
     )
     test = models.ForeignKey(
         Test, on_delete=models.CASCADE,
-        related_name='user_tests', verbose_name=_('Test')
+        related_name='user_test', verbose_name=_('Test')
     )
     user_lesson = models.ForeignKey(
         UserLesson, on_delete=models.CASCADE,
-        related_name='user_tests', verbose_name=_('User lesson')
+        related_name='user_test', verbose_name=_('User lesson')
     )
-    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
     is_completed = models.BooleanField(_('Is completed'), default=False)
     submitted_at = models.DateTimeField(_('Submitted at'), auto_now_add=True)
 
     def __str__(self):
-        return _('Test content: {} - User: {}').format(self.test, self.user)
+        return _('Test: {} - User: {}').format(self.test, self.user)
 
     class Meta:
         verbose_name = _("User test")
         verbose_name_plural = _("User tests")
+        ordering = ('test__order', )
 
 
 # UserAnswer

@@ -115,11 +115,17 @@ class Test(models.Model):
 
 # Question
 class Question(models.Model):
+    QUESTION_TYPE = (
+        ('simple', _('Simple answer')),
+        ('multiple', _('Multiple answer')),
+    )
+
     test = models.ForeignKey(
         Test, on_delete=models.CASCADE,
         related_name='questions', verbose_name=_('Test')
     )
     text = models.TextField(_('Question text'))
+    question_type = models.CharField(_('Question type'), max_length=64, choices=QUESTION_TYPE, default='simple')
     order = models.PositiveSmallIntegerField(_('Order'), default=0)
 
     def __str__(self):

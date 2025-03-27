@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
-from core.models import Category, Course, UserCourse, UserChapter, UserLesson, Chapter
+from core.models import Category, Course, UserCourse, UserChapter, UserLesson, Chapter, UserVideo, UserText, UserTest
 
 
 # Workspace page
@@ -69,6 +69,8 @@ def course_detail(request, pk):
     return render(request, 'src/pages/course/index.html', context)
 
 
+# POST actions
+# ----------------------------------------------------------------------------------------------------------------------
 # create user course handler
 @require_POST
 @login_required
@@ -85,13 +87,20 @@ def create_user_course_handler(request, pk):
 
     user_course, created = UserCourse.objects.get_or_create(user=user, course=course)
 
-    # Chapters
     for chapter in chapters:
         UserChapter.objects.get_or_create(user=user, chapter=chapter, user_course=user_course)
 
-    # Lessons
     for lesson in lessons:
-        UserLesson.objects.get_or_create(user=user, lesson=lesson, user_course=user_course)
+        user_lesson, created = UserLesson.objects.get_or_create(user=user, lesson=lesson, user_course=user_course)
+
+        if hasattr(lesson, 'video'):
+            UserVideo.objects.get_or_create(user=user, user_lesson=user_lesson, video=lesson.video)
+
+        if hasattr(lesson, 'text'):
+            UserText.objects.get_or_create(user=user, user_lesson=user_lesson, text=lesson.text)
+
+        if hasattr(lesson, 'test'):
+            UserTest.objects.get_or_create(user=user, user_lesson=user_lesson, test=lesson.test)
 
     messages.success(request, _('You have successfully enrolled in the course'))
     return redirect('workspace')

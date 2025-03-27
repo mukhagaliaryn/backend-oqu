@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from django_summernote.admin import SummernoteModelAdminMixin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from core.forms import CourseAdminForm
@@ -40,7 +41,7 @@ class ChapterTable(TranslationTabularInline):
 class LessonTable(TranslationTabularInline):
     model = Lesson
     readonly_fields = ('view_link',)
-    fields = ('title', 'chapter', 'access', 'order', 'view_link', )
+    fields = ('title', 'chapter', 'duration', 'access', 'order', 'view_link', )
     extra = 0
 
     # Detail view
@@ -49,7 +50,8 @@ class LessonTable(TranslationTabularInline):
             url = reverse('admin:core_lesson_change', args=[obj.pk])
             return format_html('<a href="{}" class="lesson-view-link">Толығырақ</a>', url)
         return "-"
-    view_link.short_description = 'Сабақ сілтемесі'
+
+    view_link.short_description = _('Lesson link')
 
     # Chapter choice
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -73,10 +75,11 @@ class CourseAdmin(SummernoteModelAdminMixin, TranslationAdmin):
     inlines = (ChapterTable, LessonTable, )
 
     class Media:
-        js = ("/static/scripts/category_choice.js",)
+        js = ('/static/scripts/category_choice.js', )
 
 
 # registrations
+# ----------------------------------------------------------------------------------------------------------------------
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Course, CourseAdmin)
