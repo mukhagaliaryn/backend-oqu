@@ -14,19 +14,22 @@ def workspace(request):
     user = request.user
     user_courses = UserCourse.objects.select_related('course').filter(user=user)
 
-    user_chapters = UserChapter.objects.filter(user_course__in=user_courses).values('id', 'user_course_id')
-    user_lessons = UserLesson.objects.filter(user_course__in=user_courses).values('id', 'user_course_id')
-    chapter_map = {}
-    lesson_map = {}
-    for uc in user_chapters:
-        chapter_map[uc['user_course_id']] = uc['id']
-    for ul in user_lessons:
-        lesson_map[ul['user_course_id']] = ul['id']
+    first_lessons = {}
+    first_chapters = {}
+
+    for uc in user_courses:
+        user_lessons = uc.user_lessons.select_related('lesson').order_by('lesson__order')
+        user_chapters = uc.user_chapters.select_related('chapter').order_by('chapter__order')
+
+        if user_lessons.exists():
+            first_lessons[uc.id] = user_lessons.first().id
+        if user_chapters.exists():
+            first_chapters[uc.id] = user_chapters.first().id
 
     context = {
         'user_courses': user_courses,
-        'chapter_map': chapter_map,
-        'lesson_map': lesson_map,
+        'first_lesson_ids': first_lessons,
+        'first_chapter_ids': first_chapters,
     }
     return render(request, 'src/pages/index.html', context)
 
@@ -92,5 +95,4 @@ def create_user_course_handler(request, pk):
 
     messages.success(request, _('You have successfully enrolled in the course'))
     return redirect('workspace')
-
 

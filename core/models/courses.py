@@ -20,7 +20,7 @@ class Category(models.Model):
         ordering = ('order', )
 
 
-# SubCategory
+# Subcategory
 class Subcategory(models.Model):
     own = models.ForeignKey(
         Category, on_delete=models.CASCADE,
@@ -92,7 +92,7 @@ class Chapter(models.Model):
         Course, on_delete=models.CASCADE,
         related_name='chapters', verbose_name=_('Course')
     )
-    name = models.CharField(_('Name'), max_length=255)
+    name = models.CharField(_('Name'), max_length=128)
     order = models.PositiveSmallIntegerField(_('Order'), default=0)
 
     def __str__(self):

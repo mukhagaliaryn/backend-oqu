@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from core.models import User, Course, Lesson, Chapter
+from core.models import User, Course, Lesson, Chapter, Answer, Video, Text, Test
 
 
 # UserCourse
@@ -14,10 +14,11 @@ class UserCourse(models.Model):
         Course, on_delete=models.CASCADE,
         related_name='user_courses', verbose_name=_('Course')
     )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
-        return '{}: {}'.format(self.course.name, self.user)
+        return _('Course: {} - User: {}').format(self.course.name, self.user)
 
     class Meta:
         verbose_name = _('User course')
@@ -39,10 +40,11 @@ class UserChapter(models.Model):
         UserCourse, on_delete=models.CASCADE,
         related_name='user_chapters', verbose_name=_('User course')
     )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
-        return '{}: {}'.format(self.chapter, self.user)
+        return _('Chapter: {} - User: {}').format(self.chapter, self.user)
 
     class Meta:
         verbose_name = _('User chapter')
@@ -51,6 +53,7 @@ class UserChapter(models.Model):
 
 # UserLesson
 # ----------------------------------------------------------------------------------------------------------------------
+# UserLesson
 class UserLesson(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
@@ -64,12 +67,110 @@ class UserLesson(models.Model):
         UserCourse, on_delete=models.CASCADE,
         related_name='user_lessons', verbose_name=_('User course')
     )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
-        return '{}: {}'.format(self.lesson, self.user)
+        return _('Lesson: {} - User: {}').format(self.lesson, self.user)
 
     class Meta:
         verbose_name = _('User lesson')
         verbose_name_plural = _('User lessons')
         ordering = ('lesson__order', )
+
+
+# UserVideoContent
+class UserVideo(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        related_name='user_video_contents', verbose_name=_('User')
+    )
+    video = models.ForeignKey(
+        Video, on_delete=models.CASCADE,
+        related_name='user_video_contents', verbose_name=_('Video')
+    )
+    user_lesson = models.ForeignKey(
+        UserLesson, on_delete=models.CASCADE,
+        related_name='user_video_contents', verbose_name=_('User lesson')
+    )
+    is_completed = models.BooleanField(_('Is completed'), default=False)
+
+    def __str__(self):
+        return _('Video content: {} - User: {}').format(self.video, self.user)
+
+    class Meta:
+        verbose_name = _('User video')
+        verbose_name_plural = _('User video contents')
+        ordering = ('video__order', )
+
+
+# UserText
+class UserText(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        related_name='user_texts', verbose_name=_('User')
+    )
+    text = models.ForeignKey(
+        Text, on_delete=models.CASCADE,
+        related_name='user_texts', verbose_name=_('Text')
+    )
+    user_lesson = models.ForeignKey(
+        UserLesson, on_delete=models.CASCADE,
+        related_name='user_texts', verbose_name=_('User lesson')
+    )
+    is_completed = models.BooleanField(_('Is completed'), default=False)
+
+    def __str__(self):
+        return _('Text: {} - User: {}').format(self.text, self.user)
+
+    class Meta:
+        verbose_name = _('User text')
+        verbose_name_plural = _('User texts')
+        ordering = ('text__order', )
+
+
+# UserTestContent
+class UserTest(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        related_name='user_tests', verbose_name=_('User')
+    )
+    test = models.ForeignKey(
+        Test, on_delete=models.CASCADE,
+        related_name='user_tests', verbose_name=_('Test')
+    )
+    user_lesson = models.ForeignKey(
+        UserLesson, on_delete=models.CASCADE,
+        related_name='user_tests', verbose_name=_('User lesson')
+    )
+    score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, null=True, blank=True)
+    is_completed = models.BooleanField(_('Is completed'), default=False)
+    submitted_at = models.DateTimeField(_('Submitted at'), auto_now_add=True)
+
+    def __str__(self):
+        return _('Test content: {} - User: {}').format(self.test, self.user)
+
+    class Meta:
+        verbose_name = _("User test")
+        verbose_name_plural = _("User tests")
+
+
+# UserAnswer
+class UserAnswer(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        related_name='user_answers', verbose_name=_('User'),
+    )
+    user_test_content = models.ForeignKey(
+        UserTest, on_delete=models.CASCADE,
+        related_name='user_answers', verbose_name=_('Test content')
+    )
+    selected_answers = models.ManyToManyField(Answer, related_name='user_answers', verbose_name=_('Selected answers'))
+    answered_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return _('User answer: ID{} - User: {}').format(self.pk, self.user)
+
+    class Meta:
+        verbose_name = _('User answer')
+        verbose_name_plural = _('User answers')

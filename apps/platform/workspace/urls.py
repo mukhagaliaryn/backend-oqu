@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.platform.workspace.views import main, lesson
+from apps.platform.workspace.views import main, course
 
 
 urlpatterns = [
@@ -10,6 +10,6 @@ urlpatterns = [
 
     # user course urls...
     path('user/course/<user_course_pk>/chapter/<user_chapter_pk>/lesson/<user_lesson_pk>/',
-         lesson.user_course_lesson, name='user_course_lesson'
+         course.user_course_lesson, name='user_course_lesson'
     )
 ]

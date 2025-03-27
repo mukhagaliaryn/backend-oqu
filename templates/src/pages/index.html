@@ -20,35 +20,37 @@
                 <div class="swiper-wrapper">
                     {% for item in user_courses %}
                         <div class="swiper-slide">
-                            {% with chapter_id=chapter_map|get_item:item.id lesson_id=lesson_map|get_item:item.id %}
-                                <a href="{% url 'user_course_lesson' item.id chapter_id lesson_id %}" class="block border rounded-lg overflow-hidden">
-                                    <div class="aspect-video bg-zinc-100 overflow-hidden flex justify-center items-center">
-                                        {% if item.course.poster %}
-                                            <img src="{{ item.course.poster.url }}" class="w-full" alt="{{ course.name }}">
-                                        {% else %}
-                                            <div>
-                                                <svg class="w-20 h-20 text-zinc-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/>
-                                                </svg>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="grid gap-4 py-4">
-                                        <div class="mx-2 px-2 rounded">
-                                            <h1 class="text-base font-semibold line-clamp-1">{{ item.course.name }}</h1>
+                            {% with lesson_id=first_lesson_ids|get_item:item.id chapter_id=first_chapter_ids|get_item:item.id %}
+                                {% if lesson_id and chapter_id %}
+                                    <a href="{% url 'user_course_lesson' item.id chapter_id lesson_id %}" class="block border rounded-lg overflow-hidden">
+                                        <div class="aspect-video bg-zinc-100 overflow-hidden flex justify-center items-center">
+                                            {% if item.course.poster %}
+                                                <img src="{{ item.course.poster.url }}" class="w-full" alt="{{ course.name }}">
+                                            {% else %}
+                                                <div>
+                                                    <svg class="w-20 h-20 text-zinc-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/>
+                                                    </svg>
+                                                </div>
+                                            {% endif %}
                                         </div>
+                                        <div class="grid gap-4 py-4">
+                                            <div class="mx-2 px-2 rounded">
+                                                <h1 class="text-base font-semibold line-clamp-1">{{ item.course.name }}</h1>
+                                            </div>
 
-                                        <div class="w-full space-y-3 px-2">
-                                            <div class="flex justify-between">
-                                                <span class="text-zinc-500">24/5 орындалды</span>
-                                                <span class="font-medium">45%</span>
-                                            </div>
-                                            <div class="w-full bg-zinc-200 rounded-full h-1.5 mb-4">
-                                                <div class="bg-zinc-900 h-1.5 rounded-full" style="width: 45%"></div>
+                                            <div class="w-full space-y-3 px-2">
+                                                <div class="flex justify-between">
+                                                    <span class="text-zinc-500">24/5 орындалды</span>
+                                                    <span class="font-medium">45%</span>
+                                                </div>
+                                                <div class="w-full bg-zinc-200 rounded-full h-1.5 mb-4">
+                                                    <div class="bg-zinc-900 h-1.5 rounded-full" style="width: 45%"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                {% endif %}
                             {% endwith %}
                         </div>
                     {% endfor %}
