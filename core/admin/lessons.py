@@ -4,11 +4,17 @@ from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 from django_summernote.admin import SummernoteModelAdminMixin
 from modeltranslation.admin import TranslationAdmin
-from core.models import Lesson, Question, Answer, Video, Text, Test
+from core.models import Lesson, Question, Answer, Video, Text, Test, LessonDocs
 
 
 # Lesson admin
 # ----------------------------------------------------------------------------------------------------------------------
+# Lesson docs
+class LessonDocsInline(admin.TabularInline):
+    model = LessonDocs
+    extra = 0
+
+
 # Video
 class VideoInline(admin.TabularInline):
     model = Video
@@ -42,7 +48,7 @@ class TestInline(admin.TabularInline):
 class LessonAdmin(SummernoteModelAdminMixin, TranslationAdmin):
     list_display = ('title', 'course', 'chapter', 'last_update', 'access', 'order', )
     list_filter = ('course', 'chapter', 'access', )
-    inlines = [TextInline, VideoInline, TestInline ]
+    inlines = [LessonDocsInline, TextInline, VideoInline, TestInline ]
 
 
 # Test admin

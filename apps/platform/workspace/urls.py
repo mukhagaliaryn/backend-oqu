@@ -10,6 +10,6 @@ urlpatterns = [
 
     # user course urls...
     path('user/course/<user_course_pk>/chapter/<user_chapter_pk>/lesson/<user_lesson_pk>/',
-         course.user_course_lesson, name='user_course_lesson'
-    )
+         course.user_course_lesson_view, name='user_course_lesson'
+    ),
 ]

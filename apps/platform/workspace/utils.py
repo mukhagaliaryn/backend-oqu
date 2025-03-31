@@ -1,4 +1,4 @@
-from core.models import UserCourse, UserChapter, UserLesson, UserVideo, UserText, UserTest
+from core.models import UserCourse, UserChapter, UserLesson, UserVideo, UserText, UserTest, UserAnswer
 
 
 # Update user progress for course

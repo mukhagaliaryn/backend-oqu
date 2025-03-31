@@ -1,11 +1,17 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from core.models import User, Course, Lesson, Chapter, Answer, Video, Text, Test
+from core.models import User, Course, Lesson, Chapter, Answer, Video, Text, Test, Question
 
 
 # UserCourse
 # ----------------------------------------------------------------------------------------------------------------------
 class UserCourse(models.Model):
+    COURSE_STATUS = (
+        ('no-started', _('No started')),
+        ('in-progress', _('In progress')),
+        ('finished', _('Finished')),
+    )
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
         related_name='user_courses', verbose_name=_('User')
@@ -15,6 +21,7 @@ class UserCourse(models.Model):
         related_name='user_courses', verbose_name=_('Course')
     )
     score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
+    status = models.CharField(_('Status'), choices=COURSE_STATUS, max_length=64, default='no-started')
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -55,6 +62,12 @@ class UserChapter(models.Model):
 # ----------------------------------------------------------------------------------------------------------------------
 # UserLesson
 class UserLesson(models.Model):
+    LESSON_STATUS = (
+        ('no-started', _('No started')),
+        ('in-progress', _('In progress')),
+        ('finished', _('Finished')),
+    )
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
         related_name='user_lessons', verbose_name=_('User')
@@ -68,6 +81,7 @@ class UserLesson(models.Model):
         related_name='user_lessons', verbose_name=_('User course')
     )
     score = models.DecimalField(_('Score (%)'), max_digits=5, decimal_places=2, default=0)
+    status = models.CharField(_('Status'), choices=LESSON_STATUS, max_length=64, default='no-started')
     is_completed = models.BooleanField(_('Is completed'), default=False)
 
     def __str__(self):
@@ -164,9 +178,13 @@ class UserAnswer(models.Model):
         User, on_delete=models.CASCADE,
         related_name='user_answers', verbose_name=_('User'),
     )
-    user_test_content = models.ForeignKey(
+    user_test = models.ForeignKey(
         UserTest, on_delete=models.CASCADE,
-        related_name='user_answers', verbose_name=_('Test content')
+        related_name='user_answers', verbose_name=_('Test'), null=True, blank=True
+    )
+    question = models.ForeignKey(
+        Question, on_delete=models.CASCADE,
+        related_name='user_answers', verbose_name=_('Question'), null=True, blank=True
     )
     selected_answers = models.ManyToManyField(Answer, related_name='user_answers', verbose_name=_('Selected answers'))
     answered_at = models.DateTimeField(auto_now_add=True)
