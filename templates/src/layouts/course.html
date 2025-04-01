@@ -5,6 +5,8 @@
 
 {% block content %}
 <div class="h-screen overflow-hidden">
+    <!-- Lesson navbar -->
+    <!-- ============================================================================================================================================ -->
     <div class="w-full sticky z-40 top-0 w-full border-b">
         <div class="h-12 flex justify-between items-center px-4">
             <div class="flex items-center">
@@ -78,12 +80,14 @@
 
     <div class="w-full flex overflow-hidden" style="height: calc(100vh - 48px);">
         <!-- Lesson control -->
+        <!-- ============================================================================================================================================ -->
         <div class="flex-1 overflow-auto">
             {% block course_content %}
             {% endblock course_content %}
         </div>
 
         <!-- Lesson lists -->
+        <!-- ============================================================================================================================================ -->
         <div class="max-w-md w-full sticky top-12 border-l overflow-auto">
             <div 
                 id="accordion-flush" 
@@ -121,10 +125,11 @@
                         aria-labelledby="accordion-chapter-heading-{{ item.id }}"
                     >
                         {% for user_lesson in user_lessons_by_chapter|get_item:item.chapter.id %}
+                            <!-- User lesson -->
                             {% url 'user_course_lesson' user_course.id item.id user_lesson.id as user_lesson_url %}
                             <a
                                 href="{{ user_lesson_url }}" 
-                                class="grid gap-4 p-4 mb-2 rounded-lg border {% if request.path == user_lesson_url %}bg-blue-50 border-blue-300{% else %}bg-white{% endif %}"
+                                class="grid gap-4 p-4 mb-2 rounded-lg border {% if user_lesson.is_completed %}bg-green-50 border-green-300{% else %}{% if request.path == user_lesson_url %}bg-blue-50 border-blue-300{% else %}bg-white{% endif %}{% endif %}"
                             >
                                 <div class="flex justify-between">
                                     <div class="flex gap-4 items-center">
@@ -143,7 +148,7 @@
                                 
                                 <!-- Lesson contents -->
                                 {% if request.path == user_lesson_url %}
-                                    <div class="grid gap-2 pt-2 px-2 border-t border-blue-300 border-dashed">
+                                    <div class="grid gap-2 pt-2 px-2 border-t {% if user_lesson.is_completed %}border-green-300{% else %}border-blue-300{% endif %} border-dashed">
                                         <!-- user text -->
                                         {% if user_text %}
                                             <div class="flex items-center gap-2 {% if user_text.is_completed %}font-medium text-green-600{% else %}{% if section == 'text' %}font-medium{% else %}text-zinc-500{% endif %}{% endif %}">

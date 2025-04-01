@@ -1,5 +1,4 @@
 from collections import defaultdict
-
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
@@ -42,6 +41,20 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
     if hasattr(lesson, 'test'):
         user_test = UserTest.objects.filter(user=user, user_lesson=user_lesson).first()
 
+    test_results = []
+    if user_test and user_test.is_completed:
+        for ua in user_test.user_answers.select_related('question').prefetch_related('selected_answers', 'question__answers'):
+            selected_ids = set(ua.selected_answers.values_list('id', flat=True))
+            correct_ids = set(ua.question.answers.filter(is_correct=True).values_list('id', flat=True))
+            test_results.append({
+                'question': ua.question,
+                'user_answers': ua.selected_answers.all(),
+                'correct_answers': ua.question.answers.filter(is_correct=True),
+                'all_answers': ua.question.answers.all(),
+                'is_correct': selected_ids == correct_ids,
+            })
+    total_questions = len(test_results)
+    correct_answers = sum(1 for r in test_results if r['is_correct'])
 
     # POST actions
     # ------------------------------------------------------------------------------------------------------------------
@@ -88,8 +101,8 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
                     return redirect(f'{url}?section=video')
                 elif hasattr(lesson, 'test'):
                     return redirect(f'{url}?section=test')
-
-            messages.info(request, _('Text content already finished'))
+            else:
+                messages.info(request, _('Text content already finished'))
             return redirect('user_course_lesson', user_course.pk, user_chapter.pk, user_lesson.pk)
 
     # Finish video action
@@ -105,8 +118,8 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
 
                 if hasattr(lesson, 'test'):
                     return redirect(f'{url}?section=test')
-
-            messages.info(request, _('Video already finished'))
+            else:
+                messages.info(request, _('Video already finished'))
             return redirect('user_course_lesson', user_course.pk, user_chapter.pk, user_lesson.pk)
 
     # Complete/finish test action
@@ -142,6 +155,26 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
                 messages.success(request, _('Test finished. Score: {}%').format(user_test.score))
                 url = reverse('user_course_lesson', args=[user_course.pk, user_chapter.pk, user_lesson.pk])
                 return redirect(f'{url}?section=test')
+            else:
+                messages.info(request, _('Test already finished'))
+            return redirect('user_course_lesson', user_course.pk, user_chapter.pk, user_lesson.pk)
+
+    # Finish lesson
+    if request.method == 'POST' and request.POST.get('action') == 'finish_lesson':
+        is_text_ok = not hasattr(lesson, 'text') or (user_text and user_text.is_completed)
+        is_video_ok = not hasattr(lesson, 'video') or (user_video and user_video.is_completed)
+        is_test_ok = not hasattr(lesson, 'test') or (user_test and user_test.is_completed)
+
+        if is_text_ok and is_video_ok and is_test_ok:
+            score = (((user_text.score + user_video.score)/2) + user_test.score)/2
+            user_lesson.is_completed = True
+            user_lesson.status = 'finished'
+            user_lesson.score = score
+            user_lesson.save()
+            messages.success(request, _('Lesson completed successfully.'))
+        else:
+            messages.warning(request, _('Lesson content not fully completed.'))
+        return redirect('user_course_lesson', user_course.pk, user_chapter.pk, user_lesson.pk)
 
     # Context data
     # ------------------------------------------------------------------------------------------------------------------
@@ -156,5 +189,9 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
         'user_text': user_text,
         'user_video': user_video,
         'user_test': user_test,
+
+        'test_results': test_results,
+        'total_questions': total_questions,
+        'correct_questions': correct_answers,
     }
     return render(request, 'src/pages/user_course/lesson/index.html', context)
