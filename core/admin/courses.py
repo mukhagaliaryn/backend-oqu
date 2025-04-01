@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
@@ -6,7 +7,6 @@ from django_summernote.admin import SummernoteModelAdminMixin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from core.forms import CourseAdminForm
 from core.models import Subcategory, Chapter, Lesson, Category, Course, Language
-
 
 # Category admin
 # ----------------------------------------------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ class CourseAdmin(SummernoteModelAdminMixin, TranslationAdmin):
     inlines = (ChapterTable, LessonTable, )
 
     class Media:
-        js = ('/static/scripts/category_choice.js', )
+        js = (static('scripts/category_choice.js'), )
 
 
 # registrations
