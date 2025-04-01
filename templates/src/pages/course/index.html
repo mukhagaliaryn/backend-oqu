@@ -178,12 +178,12 @@
         </div>
 
         {% if course.id in user_course_ids %}
-            <button 
-                type="button" 
-                class="text-sm px-4 py-2 text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100 font-medium rounded-lg"
+            <a 
+                href="{% url 'user_course_lesson' user_course.id first_user_chapter.id first_user_lesson.id %}"
+                class="text-sm text-center px-4 py-2 text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100 font-medium rounded-lg"
             >
                 Сабақты жалғастыру
-            </button>
+    </a>
         {% else %}
             <form method="post" action="{% url 'create_user_course' course.pk %}">
                 {% csrf_token %}

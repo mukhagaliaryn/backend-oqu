@@ -43,7 +43,9 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
 
     test_results = []
     if user_test and user_test.is_completed:
-        for ua in user_test.user_answers.select_related('question').prefetch_related('selected_answers', 'question__answers'):
+        for ua in user_test.user_answers.select_related('question').prefetch_related(
+                'selected_answers', 'question__answers'
+        ):
             selected_ids = set(ua.selected_answers.values_list('id', flat=True))
             correct_ids = set(ua.question.answers.filter(is_correct=True).values_list('id', flat=True))
             test_results.append({
@@ -161,19 +163,61 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
 
     # Finish lesson
     if request.method == 'POST' and request.POST.get('action') == 'finish_lesson':
-        is_text_ok = not hasattr(lesson, 'text') or (user_text and user_text.is_completed)
-        is_video_ok = not hasattr(lesson, 'video') or (user_video and user_video.is_completed)
-        is_test_ok = not hasattr(lesson, 'test') or (user_test and user_test.is_completed)
+        completed_items = []
+        scores = []
+        expected_parts = []
 
-        if is_text_ok and is_video_ok and is_test_ok:
-            score = (((user_text.score + user_video.score)/2) + user_test.score)/2
-            user_lesson.is_completed = True
+        if hasattr(lesson, 'text'):
+            expected_parts.append('text')
+        if hasattr(lesson, 'video'):
+            expected_parts.append('video')
+        if hasattr(lesson, 'test'):
+            expected_parts.append('test')
+
+        # Text
+        if hasattr(lesson, 'text'):
+            if user_text and user_text.is_completed:
+                completed_items.append('text')
+                scores.append(user_text.score)
+            else:
+                messages.warning(request, _('Text not completed.'))
+
+        # Video
+        if hasattr(lesson, 'video'):
+            if user_video and user_video.is_completed:
+                completed_items.append('video')
+                scores.append(user_video.score)
+            else:
+                messages.warning(request, _('Video not completed.'))
+
+        # Test
+        if hasattr(lesson, 'test'):
+            if user_test and user_test.is_completed:
+                completed_items.append('test')
+                scores.append(user_test.score)
+            else:
+                messages.warning(request, _('Test not completed.'))
+
+        if set(completed_items) == set(expected_parts):
+            average_score = sum(scores) / len(scores) if scores else 0
             user_lesson.status = 'finished'
-            user_lesson.score = score
+            user_lesson.is_completed = True
+            user_lesson.score = round(average_score, 2)
             user_lesson.save()
             messages.success(request, _('Lesson completed successfully.'))
+
+            # Course progress
+            total_lessons = user_lessons.count()
+            completed_score = sum([
+                ul.score for ul in user_lessons
+                if ul.is_completed and ul.score is not None
+            ])
+            user_course.score = round(completed_score / total_lessons, 2) if total_lessons > 0 else 0
+            user_course.is_completed = all(ul.is_completed for ul in user_lessons)
+            user_course.save()
         else:
-            messages.warning(request, _('Lesson content not fully completed.'))
+            messages.warning(request, _('Not all required lesson parts completed.'))
+
         return redirect('user_course_lesson', user_course.pk, user_chapter.pk, user_lesson.pk)
 
     # Context data

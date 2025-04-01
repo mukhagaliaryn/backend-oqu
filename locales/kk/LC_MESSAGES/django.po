@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-28 00:47+0500\n"
+"POT-Creation-Date: 2025-04-01 16:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,11 +106,63 @@ msgstr "Құпиясөз өзгертілді"
 msgid "Failed to change password"
 msgstr "Құпиясөзді өзгерту орындалмады"
 
-#: apps/platform/workspace/views/main.py:85
+#: apps/platform/workspace/views/course.py:70
+msgid "This lesson has no content to start"
+msgstr "Бұл сабақтың материалдары жоқ"
+
+#: apps/platform/workspace/views/course.py:88
+msgid "This lesson started"
+msgstr "Сабақ басталды"
+
+#: apps/platform/workspace/views/course.py:99
+msgid "Text content finished"
+msgstr "Мәтін оқу аяқталды"
+
+#: apps/platform/workspace/views/course.py:107
+msgid "Text content already finished"
+msgstr "Мәтінді оқылып, аяқталып қойған"
+
+#: apps/platform/workspace/views/course.py:118
+msgid "Video finished"
+msgstr "Бейнесабақ аяқталды"
+
+#: apps/platform/workspace/views/course.py:124
+msgid "Video already finished"
+msgstr "Бейнесабақ аяқталып қойған"
+
+#: apps/platform/workspace/views/course.py:157
+msgid "Test finished. Score: {}%"
+msgstr "Тест аяқталды. Балл: {}"
+
+#: apps/platform/workspace/views/course.py:161
+msgid "Test already finished"
+msgstr "Тест аяқталып қойған"
+
+#: apps/platform/workspace/views/course.py:183
+msgid "Text not completed."
+msgstr "Мәтін аяқталмады"
+
+#: apps/platform/workspace/views/course.py:191
+msgid "Video not completed."
+msgstr "Бейнесабақ аяқталмады"
+
+#: apps/platform/workspace/views/course.py:199
+msgid "Test not completed."
+msgstr "Тест аяқталмады"
+
+#: apps/platform/workspace/views/course.py:207
+msgid "Lesson completed successfully."
+msgstr "Сабақ аяқталды"
+
+#: apps/platform/workspace/views/course.py:219
+msgid "Not all required lesson parts completed."
+msgstr "Сабақтың барлық қажетті бөліктері аяқталған жоқ"
+
+#: apps/platform/workspace/views/main.py:93
 msgid "There is no material in this course"
 msgstr "Бұл курста ешқандай материал жоқ"
 
-#: apps/platform/workspace/views/main.py:105
+#: apps/platform/workspace/views/main.py:113
 msgid "You have successfully enrolled in the course"
 msgstr "Курсқа сәтті жазылдыңыз"
 
@@ -130,17 +182,21 @@ msgstr "English"
 msgid "Lesson link"
 msgstr "Сабақ сілтемесі"
 
-#: core/admin/lessons.py:38
+#: core/admin/lessons.py:44
 msgid "Test link"
 msgstr "Тест сілтемесі"
 
-#: core/admin/lessons.py:64
+#: core/admin/lessons.py:70
 msgid "Question link"
 msgstr "Сұрақ сілтемесі"
 
 #: core/admin/progress.py:30
 msgid "User lesson link"
-msgstr "Пайдаланушының сабағының сілтемесі"
+msgstr "Пайдаланушының сабақ сілтемесі"
+
+#: core/admin/progress.py:70
+msgid "User test link"
+msgstr "Пайдаланушының тест сілтемесі"
 
 #: core/admin/users.py:35
 msgid "Personal data"
@@ -155,10 +211,10 @@ msgid "Core"
 msgstr "Модельдер | Регистраторлар"
 
 #: core/models/accounts.py:11 core/models/accounts.py:21
-#: core/models/progress.py:11 core/models/progress.py:33
-#: core/models/progress.py:60 core/models/progress.py:86
-#: core/models/progress.py:112 core/models/progress.py:138
-#: core/models/progress.py:165 core/models/subscriptions.py:36
+#: core/models/progress.py:17 core/models/progress.py:40
+#: core/models/progress.py:73 core/models/progress.py:100
+#: core/models/progress.py:126 core/models/progress.py:152
+#: core/models/progress.py:179 core/models/subscriptions.py:36
 #: core/models/subscriptions.py:68 core/models/users.py:68
 msgid "User"
 msgstr "Пайдаланушы"
@@ -277,7 +333,7 @@ msgid "Rating"
 msgstr "Рейтинг"
 
 #: core/models/courses.py:84 core/models/courses.py:93
-#: core/models/lessons.py:14 core/models/progress.py:15
+#: core/models/lessons.py:14 core/models/progress.py:21
 msgid "Course"
 msgstr "Курс"
 
@@ -286,7 +342,7 @@ msgid "Courses"
 msgstr "Курстар"
 
 #: core/models/courses.py:102 core/models/lessons.py:18
-#: core/models/progress.py:37
+#: core/models/progress.py:44
 msgid "Chapter"
 msgstr "Бөлім"
 
@@ -309,7 +365,7 @@ msgstr "Рұқсаттама"
 
 #: core/models/lessons.py:31 core/models/lessons.py:40
 #: core/models/lessons.py:62 core/models/lessons.py:81
-#: core/models/lessons.py:101 core/models/progress.py:64
+#: core/models/lessons.py:101 core/models/progress.py:77
 msgid "Lesson"
 msgstr "Сабақ"
 
@@ -349,7 +405,7 @@ msgstr "URL сілтеме"
 msgid "Video: {}"
 msgstr "Видео: {}"
 
-#: core/models/lessons.py:72 core/models/progress.py:90
+#: core/models/lessons.py:72 core/models/progress.py:104
 msgid "Video"
 msgstr "Видео"
 
@@ -365,7 +421,7 @@ msgstr "Контент"
 msgid "Text: {}"
 msgstr "Мәтін: {}"
 
-#: core/models/lessons.py:90 core/models/progress.py:116
+#: core/models/lessons.py:90 core/models/progress.py:130
 msgid "Text"
 msgstr "Мәтін"
 
@@ -378,7 +434,7 @@ msgid "Test: {}"
 msgstr "Тест: {}"
 
 #: core/models/lessons.py:111 core/models/lessons.py:125
-#: core/models/progress.py:142
+#: core/models/progress.py:156 core/models/progress.py:183
 msgid "Test"
 msgstr "Тест"
 
@@ -407,6 +463,7 @@ msgid "Question: ID{}"
 msgstr "Сұрақ: ID{}"
 
 #: core/models/lessons.py:135 core/models/lessons.py:144
+#: core/models/progress.py:187
 msgid "Question"
 msgstr "Сұрақ"
 
@@ -434,113 +491,126 @@ msgstr "Жауап"
 msgid "Answers"
 msgstr "Жауаптар"
 
-#: core/models/progress.py:17 core/models/progress.py:43
-#: core/models/progress.py:70 core/models/progress.py:96
-#: core/models/progress.py:122 core/models/progress.py:148
+#: core/models/progress.py:10 core/models/progress.py:66
+msgid "No started"
+msgstr "Басталмады"
+
+#: core/models/progress.py:11 core/models/progress.py:67
+msgid "In progress"
+msgstr "Өтіліп жатыр"
+
+#: core/models/progress.py:12 core/models/progress.py:68
+msgid "Finished"
+msgstr "Аяқталды"
+
+#: core/models/progress.py:23 core/models/progress.py:50
+#: core/models/progress.py:83 core/models/progress.py:110
+#: core/models/progress.py:136 core/models/progress.py:162
 msgid "Score (%)"
 msgstr "Бағасы (%)"
 
-#: core/models/progress.py:18 core/models/progress.py:44
-#: core/models/progress.py:71 core/models/progress.py:97
-#: core/models/progress.py:123 core/models/progress.py:149
+#: core/models/progress.py:24 core/models/progress.py:84
+#: core/models/subscriptions.py:72
+msgid "Status"
+msgstr "Статус"
+
+#: core/models/progress.py:25 core/models/progress.py:51
+#: core/models/progress.py:85 core/models/progress.py:111
+#: core/models/progress.py:137 core/models/progress.py:163
 msgid "Is completed"
 msgstr "Орындалды"
 
-#: core/models/progress.py:21
+#: core/models/progress.py:28
 msgid "Course: {} - User: {}"
 msgstr "Курс: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:24 core/models/progress.py:41
-#: core/models/progress.py:68
+#: core/models/progress.py:31 core/models/progress.py:48
+#: core/models/progress.py:81
 msgid "User course"
 msgstr "Пайдаланушының курсы"
 
-#: core/models/progress.py:25
+#: core/models/progress.py:32
 msgid "User courses"
 msgstr "Пайдаланушының курстары"
 
-#: core/models/progress.py:47
+#: core/models/progress.py:54
 msgid "Chapter: {} - User: {}"
 msgstr "Бөлім: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:50
+#: core/models/progress.py:57
 msgid "User chapter"
 msgstr "Пайдаланушының бөлімі"
 
-#: core/models/progress.py:51
+#: core/models/progress.py:58
 msgid "User chapters"
 msgstr "Пайдаланушының бөлімдері"
 
-#: core/models/progress.py:74
+#: core/models/progress.py:88
 msgid "Lesson: {} - User: {}"
 msgstr "Сабақ: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:77 core/models/progress.py:94
-#: core/models/progress.py:120 core/models/progress.py:146
+#: core/models/progress.py:91 core/models/progress.py:108
+#: core/models/progress.py:134 core/models/progress.py:160
 msgid "User lesson"
 msgstr "Пайдаланушының сабағы"
 
-#: core/models/progress.py:78
+#: core/models/progress.py:92
 msgid "User lessons"
 msgstr "Пайдаланушының сабақтары"
 
-#: core/models/progress.py:100
+#: core/models/progress.py:114
 msgid "Video: {} - User: {}"
 msgstr "Видео: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:103
+#: core/models/progress.py:117
 msgid "User video"
 msgstr "Пайдаланушының сабақ видеосы"
 
-#: core/models/progress.py:104
+#: core/models/progress.py:118
 msgid "User videos"
 msgstr "Пайдаланушының сабақ видеолары"
 
-#: core/models/progress.py:126
+#: core/models/progress.py:140
 msgid "Text: {} - User: {}"
 msgstr "Мәтін: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:129
+#: core/models/progress.py:143
 msgid "User text"
 msgstr "Пайдаланушының сабақ мәтіні"
 
-#: core/models/progress.py:130
+#: core/models/progress.py:144
 msgid "User texts"
 msgstr "Пайдаланушының сабақ мәтіндері"
 
-#: core/models/progress.py:150
+#: core/models/progress.py:164
 msgid "Submitted at"
 msgstr "Ұсынылған"
 
-#: core/models/progress.py:153
+#: core/models/progress.py:167
 msgid "Test: {} - User: {}"
 msgstr "Тест: {} - Пайдаланушы: {}"
 
-#: core/models/progress.py:156
+#: core/models/progress.py:170
 msgid "User test"
 msgstr "Пайдаланушының сабақ тесті"
 
-#: core/models/progress.py:157
+#: core/models/progress.py:171
 msgid "User tests"
 msgstr "Пайдаланушының сабақ тесттері"
 
-#: core/models/progress.py:169
-msgid "Test content"
-msgstr "Тест"
-
-#: core/models/progress.py:171
+#: core/models/progress.py:189
 msgid "Selected answers"
 msgstr "Таңдалған жауаптар"
 
-#: core/models/progress.py:175
+#: core/models/progress.py:193
 msgid "User answer: ID{} - User: {}"
 msgstr "Пайдаланушының жауабы: ID{} - Пайдаланушы: {}"
 
-#: core/models/progress.py:178
+#: core/models/progress.py:196
 msgid "User answer"
 msgstr "Пайдаланушының жауабы"
 
-#: core/models/progress.py:179
+#: core/models/progress.py:197
 msgid "User answers"
 msgstr "Пайдаланушының жауаптары"
 
@@ -611,10 +681,6 @@ msgstr "Суммасы"
 #: core/models/subscriptions.py:71
 msgid "Payment date"
 msgstr "Төлем күні"
-
-#: core/models/subscriptions.py:72
-msgid "Status"
-msgstr "Статус"
 
 #: core/models/subscriptions.py:73
 msgid "Admin note"

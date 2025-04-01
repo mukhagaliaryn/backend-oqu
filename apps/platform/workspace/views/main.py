@@ -26,10 +26,12 @@ def workspace(request):
         if user_chapters.exists():
             first_chapters[uc.id] = user_chapters.first().id
 
+    completed_lessons_count = UserLesson.objects.filter(user_course__in=user_courses, is_completed=True).count()
     context = {
         'user_courses': user_courses,
         'first_lesson_ids': first_lessons,
         'first_chapter_ids': first_chapters,
+        'completed_lessons_count': completed_lessons_count
     }
     return render(request, 'src/pages/index.html', context)
 
@@ -62,9 +64,15 @@ def course_detail(request, pk):
     user_course_ids = set(
         UserCourse.objects.filter(user=user).values_list('course_id', flat=True)
     )
+    user_course = UserCourse.objects.filter(user=user, course=course).first()
+    first_user_chapter = user_course.user_chapters.select_related('chapter').order_by('chapter__order').first()
+    first_user_lesson = user_course.user_lessons.select_related('lesson').order_by('lesson__order').first()
     context = {
         'course': course,
-        'user_course_ids': user_course_ids
+        'user_course_ids': user_course_ids,
+        'user_course': user_course,
+        'first_user_chapter': first_user_chapter,
+        'first_user_lesson': first_user_lesson
     }
     return render(request, 'src/pages/course/index.html', context)
 
