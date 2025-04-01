@@ -65,8 +65,13 @@ def course_detail(request, pk):
         UserCourse.objects.filter(user=user).values_list('course_id', flat=True)
     )
     user_course = UserCourse.objects.filter(user=user, course=course).first()
-    first_user_chapter = user_course.user_chapters.select_related('chapter').order_by('chapter__order').first()
-    first_user_lesson = user_course.user_lessons.select_related('lesson').order_by('lesson__order').first()
+    first_user_chapter = None
+    first_user_lesson = None
+
+    if user_course:
+        first_user_chapter = user_course.user_chapters.select_related('chapter').order_by('chapter__order').first()
+        first_user_lesson = user_course.user_lessons.select_related('lesson').order_by('lesson__order').first()
+
     context = {
         'course': course,
         'user_course_ids': user_course_ids,
