@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 15:10+0500\n"
+"POT-Creation-Date: 2025-04-23 18:24+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,50 +24,42 @@ msgstr ""
 msgid "email"
 msgstr "Электронды пошта"
 
-#: apps/platform/accounts/forms/account.py:16
+#: apps/platform/accounts/forms/account.py:15
 msgid "If you want to change your email, write to us!"
 msgstr "Егер сіз электрондық поштаңызды өзгерткіңіз келсе, бізге жазыңыз!"
 
-#: apps/platform/accounts/forms/account.py:19
+#: apps/platform/accounts/forms/account.py:18
 #: apps/platform/accounts/forms/auth.py:36 core/models/users.py:37
 msgid "username"
 msgstr "Пайдаланушы аты"
 
-#: apps/platform/accounts/forms/account.py:24
+#: apps/platform/accounts/forms/account.py:22
 msgid "If you want to change your username, write to us!"
 msgstr "Пайдаланушы атыңызды өзгерткіңіз келсе, бізге жазыңыз!"
 
-#: apps/platform/accounts/forms/account.py:27
+#: apps/platform/accounts/forms/account.py:25
 #: apps/platform/accounts/forms/auth.py:42 core/models/users.py:40
 msgid "First name"
 msgstr "Есімі"
 
-#: apps/platform/accounts/forms/account.py:30
-msgid "Write your first name"
-msgstr "Өз атыңызды жазыңыз"
-
-#: apps/platform/accounts/forms/account.py:34
+#: apps/platform/accounts/forms/account.py:31
 #: apps/platform/accounts/forms/auth.py:48 core/models/users.py:41
 msgid "Last name"
 msgstr "Тегі"
 
-#: apps/platform/accounts/forms/account.py:37
-msgid "Write your last name"
-msgstr "Фамилияңызды жазыңыз"
-
-#: apps/platform/accounts/forms/account.py:55 core/models/accounts.py:26
+#: apps/platform/accounts/forms/account.py:51 core/models/accounts.py:26
 msgid "Birthday"
 msgstr "Туылған күні"
 
-#: apps/platform/accounts/forms/account.py:68
+#: apps/platform/accounts/forms/account.py:64
 msgid "Old password"
 msgstr "Ескі құпиясөз"
 
-#: apps/platform/accounts/forms/account.py:74
+#: apps/platform/accounts/forms/account.py:70
 msgid "New password"
 msgstr "Жаңа құпиясөз"
 
-#: apps/platform/accounts/forms/account.py:80
+#: apps/platform/accounts/forms/account.py:76
 msgid "Confirm new password"
 msgstr "Жаңа құпиясөзді растаңыз"
 
@@ -97,7 +89,7 @@ msgid "Failed to change password"
 msgstr "Құпиясөзді өзгерту орындалмады"
 
 #: apps/platform/workspace/services/course.py:44
-msgid "This lesson has no content to start"
+msgid "This lesson has no content to start."
 msgstr "Бұл сабақтың материалдары жоқ"
 
 #: apps/platform/workspace/services/course.py:66
@@ -717,3 +709,4 @@ msgstr "Тіркелген уақыты"
 #: core/models/users.py:73
 msgid "Users"
 msgstr "Пайдаланушылар"
+

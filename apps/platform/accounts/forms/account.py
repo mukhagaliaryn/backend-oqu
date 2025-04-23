@@ -11,7 +11,6 @@ class UserUpdateForm(forms.ModelForm):
         label=_('email'),
         widget=forms.EmailInput(attrs={
             'class': 'text-sm font-medium bg-zinc-100 text-zinc-500',
-            'placeholder': 'example@gmail.com',
         }),
         help_text=_('If you want to change your email, write to us!')
     )
@@ -19,7 +18,6 @@ class UserUpdateForm(forms.ModelForm):
         label=_('username'),
         widget=forms.TextInput(attrs={
             'class': 'text-sm font-medium bg-zinc-100 text-zinc-500',
-            'placeholder': 'my.username',
         }),
         help_text=_('If you want to change your username, write to us!')
     )
@@ -27,14 +25,12 @@ class UserUpdateForm(forms.ModelForm):
         label=_('First name'),
         widget=forms.TextInput(attrs={
             'class': 'text-sm font-medium',
-            'placeholder': _('Write your first name')
         }),
     )
     last_name = forms.CharField(
         label=_('Last name'),
         widget=forms.TextInput(attrs={
             'class': 'text-sm font-medium',
-            'placeholder': _('Write your last name')
         }),
     )
 

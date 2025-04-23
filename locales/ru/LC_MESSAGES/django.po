@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 15:10+0500\n"
+"POT-Creation-Date: 2025-04-23 18:24+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,50 +26,42 @@ msgstr ""
 msgid "email"
 msgstr "Электронная почта"
 
-#: apps/platform/accounts/forms/account.py:16
+#: apps/platform/accounts/forms/account.py:15
 msgid "If you want to change your email, write to us!"
 msgstr "Если вы хотите изменить свой адрес электронной почты, напишите нам!"
 
-#: apps/platform/accounts/forms/account.py:19
+#: apps/platform/accounts/forms/account.py:18
 #: apps/platform/accounts/forms/auth.py:36 core/models/users.py:37
 msgid "username"
 msgstr "Имя пользователя"
 
-#: apps/platform/accounts/forms/account.py:24
+#: apps/platform/accounts/forms/account.py:22
 msgid "If you want to change your username, write to us!"
 msgstr "Если вы хотите изменить свое имя пользователя, напишите нам!"
 
-#: apps/platform/accounts/forms/account.py:27
+#: apps/platform/accounts/forms/account.py:25
 #: apps/platform/accounts/forms/auth.py:42 core/models/users.py:40
 msgid "First name"
 msgstr "Имя"
 
-#: apps/platform/accounts/forms/account.py:30
-msgid "Write your first name"
-msgstr "Напишите свое имя"
-
-#: apps/platform/accounts/forms/account.py:34
+#: apps/platform/accounts/forms/account.py:31
 #: apps/platform/accounts/forms/auth.py:48 core/models/users.py:41
 msgid "Last name"
 msgstr "Фамилия"
 
-#: apps/platform/accounts/forms/account.py:37
-msgid "Write your last name"
-msgstr "Напишите свою фамилию"
-
-#: apps/platform/accounts/forms/account.py:55 core/models/accounts.py:26
+#: apps/platform/accounts/forms/account.py:51 core/models/accounts.py:26
 msgid "Birthday"
 msgstr "День рождение"
 
-#: apps/platform/accounts/forms/account.py:68
+#: apps/platform/accounts/forms/account.py:64
 msgid "Old password"
 msgstr "Старый пароль"
 
-#: apps/platform/accounts/forms/account.py:74
+#: apps/platform/accounts/forms/account.py:70
 msgid "New password"
 msgstr "Новый пароль"
 
-#: apps/platform/accounts/forms/account.py:80
+#: apps/platform/accounts/forms/account.py:76
 msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
 
