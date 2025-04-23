@@ -203,6 +203,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Email settings
+# ----------------------------------------------------------------------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -212,6 +213,7 @@ EMAIL_USE_TLS = True
 
 
 # Simple JWT settings
+# ----------------------------------------------------------------------------------------------------------------------
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
@@ -226,6 +228,7 @@ SITE_NAME = config('SITE_NAME')
 
 
 # Djoser settings
+# ----------------------------------------------------------------------------------------------------------------------
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
@@ -249,6 +252,7 @@ DJOSER = {
 
 
 # OAuth2 Google
+# ----------------------------------------------------------------------------------------------------------------------
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 16:13+0500\n"
+"POT-Creation-Date: 2025-04-23 15:10+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: apps/platform/accounts/forms/account.py:11
-#: apps/platform/accounts/forms/auth.py:11
-#: apps/platform/accounts/forms/auth.py:29 core/models/users.py:34
+#: apps/platform/accounts/forms/auth.py:13
+#: apps/platform/accounts/forms/auth.py:30 core/models/users.py:35
 msgid "email"
 msgstr "Электронды пошта"
 
@@ -29,7 +29,7 @@ msgid "If you want to change your email, write to us!"
 msgstr "Егер сіз электрондық поштаңызды өзгерткіңіз келсе, бізге жазыңыз!"
 
 #: apps/platform/accounts/forms/account.py:19
-#: apps/platform/accounts/forms/auth.py:36 core/models/users.py:35
+#: apps/platform/accounts/forms/auth.py:36 core/models/users.py:37
 msgid "username"
 msgstr "Пайдаланушы аты"
 
@@ -38,22 +38,20 @@ msgid "If you want to change your username, write to us!"
 msgstr "Пайдаланушы атыңызды өзгерткіңіз келсе, бізге жазыңыз!"
 
 #: apps/platform/accounts/forms/account.py:27
-#: apps/platform/accounts/forms/auth.py:43 core/models/users.py:36
+#: apps/platform/accounts/forms/auth.py:42 core/models/users.py:40
 msgid "First name"
 msgstr "Есімі"
 
 #: apps/platform/accounts/forms/account.py:30
-#: apps/platform/accounts/forms/auth.py:46
 msgid "Write your first name"
 msgstr "Өз атыңызды жазыңыз"
 
 #: apps/platform/accounts/forms/account.py:34
-#: apps/platform/accounts/forms/auth.py:50 core/models/users.py:37
+#: apps/platform/accounts/forms/auth.py:48 core/models/users.py:41
 msgid "Last name"
 msgstr "Тегі"
 
 #: apps/platform/accounts/forms/account.py:37
-#: apps/platform/accounts/forms/auth.py:53
 msgid "Write your last name"
 msgstr "Фамилияңызды жазыңыз"
 
@@ -73,22 +71,14 @@ msgstr "Жаңа құпиясөз"
 msgid "Confirm new password"
 msgstr "Жаңа құпиясөзді растаңыз"
 
-#: apps/platform/accounts/forms/auth.py:18
-#: apps/platform/accounts/forms/auth.py:57
+#: apps/platform/accounts/forms/auth.py:19
+#: apps/platform/accounts/forms/auth.py:54
 msgid "Password"
 msgstr "Құпиясөз"
 
 #: apps/platform/accounts/forms/auth.py:60
-msgid "Come up with a strong password"
-msgstr "Қауіпсіз пароль ойлап табыңыз"
-
-#: apps/platform/accounts/forms/auth.py:64
 msgid "Password confirm"
 msgstr "Құпиясөзді растау"
-
-#: apps/platform/accounts/forms/auth.py:67
-msgid "Repeat the password"
-msgstr "Құпиясөзді қайталаңыз"
 
 #: apps/platform/accounts/views/account.py:19
 msgid "Profile saved"
@@ -106,75 +96,63 @@ msgstr "Құпиясөз өзгертілді"
 msgid "Failed to change password"
 msgstr "Құпиясөзді өзгерту орындалмады"
 
-#: apps/platform/workspace/views/course.py:70
+#: apps/platform/workspace/services/course.py:44
 msgid "This lesson has no content to start"
 msgstr "Бұл сабақтың материалдары жоқ"
 
-#: apps/platform/workspace/views/course.py:88
+#: apps/platform/workspace/services/course.py:66
 msgid "This lesson started"
 msgstr "Сабақ басталды"
 
-#: apps/platform/workspace/views/course.py:99
-msgid "Text content finished"
-msgstr "Мәтін оқу аяқталды"
-
-#: apps/platform/workspace/views/course.py:107
+#: apps/platform/workspace/services/course.py:83
 msgid "Text content already finished"
 msgstr "Мәтінді оқылып, аяқталып қойған"
 
-#: apps/platform/workspace/views/course.py:118
-msgid "Video finished"
-msgstr "Бейнесабақ аяқталды"
-
-#: apps/platform/workspace/views/course.py:124
+#: apps/platform/workspace/services/course.py:97
 msgid "Video already finished"
 msgstr "Бейнесабақ аяқталып қойған"
 
-#: apps/platform/workspace/views/course.py:157
-msgid "Test finished. Score: {}%"
-msgstr "Тест аяқталды. Балл: {}"
-
-#: apps/platform/workspace/views/course.py:161
+#: apps/platform/workspace/services/course.py:131
 msgid "Test already finished"
 msgstr "Тест аяқталып қойған"
 
-#: apps/platform/workspace/views/course.py:183
+#: apps/platform/workspace/services/course.py:147
 msgid "Text not completed."
 msgstr "Мәтін аяқталмады"
 
-#: apps/platform/workspace/views/course.py:191
+#: apps/platform/workspace/services/course.py:155
 msgid "Video not completed."
 msgstr "Бейнесабақ аяқталмады"
 
-#: apps/platform/workspace/views/course.py:199
+#: apps/platform/workspace/services/course.py:163
 msgid "Test not completed."
 msgstr "Тест аяқталмады"
 
-#: apps/platform/workspace/views/course.py:207
+#: apps/platform/workspace/services/course.py:177
 msgid "Lesson completed successfully."
 msgstr "Сабақ аяқталды"
 
-#: apps/platform/workspace/views/course.py:219
+#: apps/platform/workspace/services/course.py:179
 msgid "Not all required lesson parts completed."
 msgstr "Сабақтың барлық қажетті бөліктері аяқталған жоқ"
 
-#: apps/platform/workspace/views/main.py:93
+#: apps/platform/workspace/views/main.py:98
 msgid "There is no material in this course"
 msgstr "Бұл курста ешқандай материал жоқ"
 
-#: apps/platform/workspace/views/main.py:113
+#: apps/platform/workspace/views/main.py:118
 msgid "You have successfully enrolled in the course"
 msgstr "Курсқа сәтті жазылдыңыз"
 
-#: config/settings.py:144
+#: config/settings.py:145
 msgid "Kazakh"
 msgstr "Қазақша"
 
-#: config/settings.py:145
+#: config/settings.py:146
 msgid "Russian"
 msgstr "Русский"
 
-#: config/settings.py:146
+#: config/settings.py:147
 msgid "English"
 msgstr "English"
 
@@ -215,7 +193,7 @@ msgstr "Модельдер | Регистраторлар"
 #: core/models/progress.py:73 core/models/progress.py:100
 #: core/models/progress.py:126 core/models/progress.py:152
 #: core/models/progress.py:179 core/models/subscriptions.py:36
-#: core/models/subscriptions.py:68 core/models/users.py:68
+#: core/models/subscriptions.py:68 core/models/users.py:72
 msgid "User"
 msgstr "Пайдаланушы"
 
@@ -694,37 +672,37 @@ msgstr "Пайдаланушының төлемі"
 msgid "User payments"
 msgstr "Пайдаланушының төлемдері"
 
-#: core/models/users.py:14
+#: core/models/users.py:15
 msgid "The user must have an username"
 msgstr "Пайдаланушының аты болуы керек"
 
-#: core/models/users.py:16
+#: core/models/users.py:17
 msgid "The user must have an email address"
 msgstr "Пайдаланушының электрондық пошта мекенжайы болуы керек"
 
-#: core/models/users.py:38
+#: core/models/users.py:42
 msgid "Avatar"
 msgstr "Суреті"
 
-#: core/models/users.py:39
+#: core/models/users.py:43
 msgid "Google avatar"
 msgstr "Google суреті"
 
-#: core/models/users.py:41
+#: core/models/users.py:45
 msgid "staff status"
 msgstr "Қызметкер статусы"
 
-#: core/models/users.py:42
+#: core/models/users.py:46
 msgid "Designates whether the user can log into this admin site."
 msgstr ""
 "Пайдаланушының қызметкер статусы, яғни осы администрация сайтына кіре "
 "алатынын белгілейді."
 
-#: core/models/users.py:45
+#: core/models/users.py:49
 msgid "active"
 msgstr "Белсенділік"
 
-#: core/models/users.py:47
+#: core/models/users.py:51
 msgid ""
 "Designates whether this user should be treated as active.Unselect this "
 "instead of deleting accounts."
@@ -732,10 +710,10 @@ msgstr ""
 "Бұл пайдаланушыға белсенді ретінде қарау керек пе, әлде жоқ па, соны "
 "анықтайды."
 
-#: core/models/users.py:51
+#: core/models/users.py:55
 msgid "date joined"
 msgstr "Тіркелген уақыты"
 
-#: core/models/users.py:69
+#: core/models/users.py:73
 msgid "Users"
 msgstr "Пайдаланушылар"
