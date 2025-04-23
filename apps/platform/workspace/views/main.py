@@ -117,4 +117,3 @@ def create_user_course_handler(request, pk):
 
     messages.success(request, _('You have successfully enrolled in the course'))
     return redirect('workspace')
-

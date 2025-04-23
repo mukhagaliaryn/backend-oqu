@@ -67,16 +67,18 @@
     <!-- Lesson controls -->
     <!-- ============================================================================================================================================ -->
     <div class="flex justify-center gap-2">
-        <button 
-            type="button" 
-            class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100 cursor-not-allowed disabled:text-zinc-400 disabled:bg-zinc-100"
-            disabled    
-        >
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m15 19-7-7 7-7"/>
-            </svg>
-            <span>Алдынғы сабақ</span>
-        </button>
+        {% if prev_lesson %}
+            <a
+                href="{% url 'user_course_lesson' user_course.pk user_chapter.pk prev_lesson.pk %}" 
+                class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100"
+            >
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m15 19-7-7 7-7"/>
+                </svg>
+                <span>Алдынғы сабақ</span>
+            </a>
+        {% endif %}
+
         {% if user_lesson.status == 'no-started' %}
             <form method="post">
                 {% csrf_token %}
@@ -96,17 +98,20 @@
                 <span>Жалғастыру</span>
             </a>
         {% endif %}
-
-        <button 
-            type="button" 
-            class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100 cursor-not-allowed disabled:text-zinc-400 disabled:bg-zinc-100"
-            disabled    
-        >
-            <span>Келесі сабақ</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m9 5 7 7-7 7"/>
-            </svg>
-        </button>
+        
+        {% if next_lesson %}
+            {% if can_access_next %}
+                <a 
+                    href="{% url 'user_course_lesson' user_course.pk user_chapter.pk next_lesson.pk %}" 
+                    class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100"
+                >
+                    <span>Келесі сабақ</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m9 5 7 7-7 7"/>
+                    </svg>
+                </a>
+            {% endif %}
+        {% endif %}
     </div>
 
     <!-- Lesson tab contents -->
@@ -287,14 +292,14 @@
                                     </svg>
                                 </a>
                             {% else %}
-                                <div class="flex text-zinc-300" data-tooltip-target="tooltip-default">
+                                <div class="flex text-zinc-300" data-tooltip-target="tooltip-less_doc-{{ doc.id }}">
                                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4"/>
                                     </svg>
                                 </div>
 
                                 <div 
-                                    id="tooltip-default" 
+                                    id="tooltip-less_doc-{{ doc.id }}" 
                                     role="tooltip" 
                                     class="absolute z-10 invisible inline-block px-3 py-2 font-medium text-white transition-opacity duration-300 bg-zinc-900 rounded-lg shadow-xs opacity-0 tooltip"
                                 >

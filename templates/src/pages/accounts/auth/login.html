@@ -17,35 +17,31 @@
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
-    
-        <button type="submit"
-            class="w-full px-3 py-2 text-sm font-medium text-center text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500">
-            Жүйеге кіру
-        </button>
+        
+        <div class="grid gap-2">
+            <button type="submit"
+                class="w-full px-3 py-2 text-sm font-medium text-center text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500">
+                Жүйеге кіру
+            </button>
+            <div class="text-center">
+                <span class="text-zinc-500">
+                    Егер парольді ұмытсаңыз:
+                </span>
+                <a href="{% url 'password_reset' %}" class="inline-flex items-center font-medium text-zinc-900 hover:underline transition-all">
+                    Қалпына келтіру
+                    <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </form>
 
-    <div>
-        <div class="text-center">
-            <span class="text-zinc-500">
-                Егер аккаунт жоқ болса:
-            </span>
-            <a href="{% url 'register' %}" class="inline-flex items-center font-medium text-zinc-900 hover:underline transition-all">
-                Регистрация
-                <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-            </a>
-        </div>
-        <div class="text-center">
-            <span class="text-zinc-500">
-                Егер парольді ұмытсаңыз:
-            </span>
-            <a href="{% url 'password_reset' %}" class="inline-flex items-center font-medium text-zinc-900 hover:underline transition-all">
-                Қалпына келтіру
-            </a>
-        </div>
-    </div>
-
-
+    <a 
+        href="{% url 'register' %}"
+        class="flex justify-center bg-white border border-zinc-200 focus:outline-none hover:bg-zinc-100 focus:ring-4 focus:ring-zinc-100 font-medium rounded-lg px-3 py-2"
+    >
+        Регистрация
+    </a>
 </div>
 {% endblock auth_content %}

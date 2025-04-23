@@ -1,3 +1,4 @@
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
@@ -16,7 +17,7 @@ class UserManager(BaseUserManager):
             raise ValueError(_('The user must have an email address'))
 
         email = self.normalize_email(email)
-        user = self.model(username=username, email=email.lower(), **kwargs)
+        user = self.model(username=username.lower(), email=email.lower(), **kwargs)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -32,7 +33,10 @@ class UserManager(BaseUserManager):
 # User
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email'), max_length=128, unique=True)
-    username = models.CharField(_('username'), max_length=128, unique=True)
+    username = models.CharField(
+        _('username'), max_length=128, unique=True,
+        validators=[UnicodeUsernameValidator()]
+    )
     first_name = models.CharField(_('First name'), max_length=128)
     last_name = models.CharField(_('Last name'), max_length=128)
     avatar = models.ImageField(_('Avatar'), upload_to='core/models/users/', blank=True, null=True)
@@ -67,4 +71,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
-        
+

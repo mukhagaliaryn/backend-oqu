@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
@@ -71,3 +73,7 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'username', 'first_name', 'last_name', 'password1', 'password2', )
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username', '')
+        return username.lower()
