@@ -1,4 +1,5 @@
 import os
+from django.core.files.storage import default_storage
 from django.db.models.signals import pre_save, post_delete
 from datetime import timedelta
 from django.db.models.signals import post_save
@@ -59,8 +60,8 @@ def delete_old_avatar(sender, instance, **kwargs):
         try:
             old_avatar = User.objects.get(pk=instance.pk).avatar
             if old_avatar and instance.avatar != old_avatar:
-                if os.path.isfile(old_avatar.path):
-                    os.remove(old_avatar.path)  # Файлды жою
+                if default_storage.exists(old_avatar.name):
+                    default_storage.delete(old_avatar.name)
         except User.DoesNotExist:
             pass
 
@@ -68,5 +69,5 @@ def delete_old_avatar(sender, instance, **kwargs):
 @receiver(post_delete, sender=User)
 def delete_avatar_on_delete(sender, instance, **kwargs):
     if instance.avatar:
-        if os.path.isfile(instance.avatar.path):
-            os.remove(instance.avatar.path)
+        if default_storage.exists(instance.avatar.name):
+            default_storage.delete(instance.avatar.name)
