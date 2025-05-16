@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-16 15:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: config/settings.py:101
+msgid "Kazakh"
+msgstr "Қазақша"
+
+#: config/settings.py:102
+msgid "Russian"
+msgstr "Русский"
+
+#: config/settings.py:103
+msgid "English"
+msgstr "English"
+
+#: core/admin/users.py:24
+msgid "Personal data"
+msgstr "Жеке деректер"
+
+#: core/admin/users.py:25
+msgid "Permissions"
+msgstr "Рұқсаттамалар"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Модельдер | Регистраторлар"
+
+#: core/models/accounts.py:13 core/models/accounts.py:23
+#: core/models/users.py:71
+msgid "User"
+msgstr "Пайдаланушы"
+
+#: core/models/accounts.py:14
+msgid "Student"
+msgstr "Білім алушы"
+
+#: core/models/accounts.py:15
+msgid "Teacher"
+msgstr "Оқытушы"
+
+#: core/models/accounts.py:18
+msgid "Undefined"
+msgstr "Белгісіз"
+
+#: core/models/accounts.py:19
+msgid "Male"
+msgstr "Ер"
+
+#: core/models/accounts.py:20
+msgid "Female"
+msgstr "Әйел"
+
+#: core/models/accounts.py:25
+msgid "Account type"
+msgstr "Аккаунт түрі"
+
+#: core/models/accounts.py:28
+msgid "Birthday"
+msgstr "Туылған күн"
+
+#: core/models/accounts.py:29
+msgid "Gender"
+msgstr "Жынысы"
+
+#: core/models/accounts.py:30
+msgid "Bio"
+msgstr "Биография"
+
+#: core/models/accounts.py:36
+msgid "Account"
+msgstr "Пайдаланушы аккаунты"
+
+#: core/models/accounts.py:37
+msgid "Accounts"
+msgstr "Пайдаланушы аккаунттары"
+
+#: core/models/users.py:15
+msgid "The user must have an username"
+msgstr "Пайдаланушының ID аты болуы керек"
+
+#: core/models/users.py:17
+msgid "The user must have an email address"
+msgstr "Пайдаланушының электрондық поштасы болуы керек"
+
+#: core/models/users.py:35
+msgid "Email"
+msgstr "Электронды пошта"
+
+#: core/models/users.py:37
+msgid "Username"
+msgstr "Пайдаланушының ID аты"
+
+#: core/models/users.py:40
+msgid "Full name"
+msgstr "Аты-жөні"
+
+#: core/models/users.py:41
+msgid "Avatar"
+msgstr "Аватар"
+
+#: core/models/users.py:42
+msgid "Google avatar"
+msgstr "Google аватар"
+
+#: core/models/users.py:44
+msgid "staff status"
+msgstr "Қызметкер статусы"
+
+#: core/models/users.py:45
+msgid "Designates whether the user can log into this admin site."
+msgstr "Пайдаланушының осы администрация сайтына кіре алатынын белгілейді."
+
+#: core/models/users.py:48
+msgid "active"
+msgstr "Белсенді"
+
+#: core/models/users.py:50
+msgid ""
+"Designates whether this user should be treated as active.Unselect this "
+"instead of deleting accounts."
+msgstr "Бұл пайдаланушыға белсенді ретінде қарау керектігін белгілейді."
+
+#: core/models/users.py:54
+msgid "date joined"
+msgstr "Тіркелген уақыты"
+
+#: core/models/users.py:72
+msgid "Users"
+msgstr "Пайдаланушылар"

@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-16 15:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: config/settings.py:101
+msgid "Kazakh"
+msgstr "Қазақша"
+
+#: config/settings.py:102
+msgid "Russian"
+msgstr "Русский"
+
+#: config/settings.py:103
+msgid "English"
+msgstr "English"
+
+#: core/admin/users.py:24
+msgid "Personal data"
+msgstr "Личные данные"
+
+#: core/admin/users.py:25
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Модели | регистраторы"
+
+#: core/models/accounts.py:13 core/models/accounts.py:23
+#: core/models/users.py:71
+msgid "User"
+msgstr "Пользователь"
+
+#: core/models/accounts.py:14
+msgid "Student"
+msgstr "Студент"
+
+#: core/models/accounts.py:15
+msgid "Teacher"
+msgstr "Преподаватель"
+
+#: core/models/accounts.py:18
+msgid "Undefined"
+msgstr "Не определено"
+
+#: core/models/accounts.py:19
+msgid "Male"
+msgstr "Мужской"
+
+#: core/models/accounts.py:20
+msgid "Female"
+msgstr "Женский"
+
+#: core/models/accounts.py:25
+msgid "Account type"
+msgstr "Тип учетной записи"
+
+#: core/models/accounts.py:28
+msgid "Birthday"
+msgstr "День рождения"
+
+#: core/models/accounts.py:29
+msgid "Gender"
+msgstr "Пол"
+
+#: core/models/accounts.py:30
+msgid "Bio"
+msgstr "Биография"
+
+#: core/models/accounts.py:36
+msgid "Account"
+msgstr "Аккаунт"
+
+#: core/models/accounts.py:37
+msgid "Accounts"
+msgstr "Аккаунты"
+
+#: core/models/users.py:15
+msgid "The user must have an username"
+msgstr "У пользователя должно быть имя пользователя"
+
+#: core/models/users.py:17
+msgid "The user must have an email address"
+msgstr "У пользователя должен быть адрес электронной почты"
+
+#: core/models/users.py:35
+msgid "Email"
+msgstr "Электронная почта"
+
+#: core/models/users.py:37
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: core/models/users.py:40
+msgid "Full name"
+msgstr "Полное имя"
+
+#: core/models/users.py:41
+msgid "Avatar"
+msgstr "Аватар"
+
+#: core/models/users.py:42
+msgid "Google avatar"
+msgstr "Google аватар"
+
+#: core/models/users.py:44
+msgid "staff status"
+msgstr "Статус персонала"
+
+#: core/models/users.py:45
+msgid "Designates whether the user can log into this admin site."
+msgstr "Определяет, может ли пользователь войти на этот административный сайт."
+
+#: core/models/users.py:48
+msgid "active"
+msgstr "Активный"
+
+#: core/models/users.py:50
+msgid ""
+"Designates whether this user should be treated as active.Unselect this "
+"instead of deleting accounts."
+msgstr "Указывает, следует ли считать этого пользователя активным.Снимите этот флажок вместо удаления учетных записей."
+
+#: core/models/users.py:54
+msgid "date joined"
+msgstr "Дата присоединения"
+
+#: core/models/users.py:72
+msgid "Users"
+msgstr "Пользователи"
