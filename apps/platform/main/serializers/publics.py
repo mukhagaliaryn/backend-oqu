@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Course, Subcategory, BlogCategory, Blog
+from core.models import Course, Subcategory, BlogCategory, Blog, FAQ
 
 
 # Course serializers
@@ -19,6 +19,15 @@ class MainCoursesSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'sub_category', 'poster', )
 
 
+# CourseDetail
+class MainCourseDetailSerializer(serializers.ModelSerializer):
+    sub_category = MainSubCategorySerializer()
+
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+
 # Blog serializers
 # ----------------------------------------------------------------------------------------------------------------------
 # Category
@@ -34,4 +43,22 @@ class MainBlogsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ('id', 'title', 'category', 'content', 'created_at')
+        fields = ('id', 'title', 'category', 'shortcut', 'created_at', )
+
+
+# Blog
+class MainBlogSerializer(serializers.ModelSerializer):
+    category = MainBlogCategorySerializer()
+
+    class Meta:
+        model = Blog
+        fields = '__all__'
+
+
+# FAQs
+# ----------------------------------------------------------------------------------------------------------------------
+class FAQSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = FAQ
+        fields = ('id', 'title', 'content', 'content', 'order', )

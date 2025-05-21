@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 15:47+0500\n"
+"POT-Creation-Date: 2025-05-21 10:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: config/settings.py:101
 msgid "Kazakh"
 msgstr "Қазақша"
@@ -30,6 +31,10 @@ msgstr "Русский"
 #: config/settings.py:103
 msgid "English"
 msgstr "English"
+
+#: core/admin/courses.py:54
+msgid "Lesson link"
+msgstr ""
 
 #: core/admin/users.py:24
 msgid "Personal data"
@@ -92,6 +97,158 @@ msgstr "Аккаунт"
 msgid "Accounts"
 msgstr "Аккаунты"
 
+#: core/models/courses.py:10 core/models/courses.py:29
+#: core/models/courses.py:46 core/models/courses.py:59
+#: core/models/courses.py:95
+msgid "Name"
+msgstr "Название"
+
+#: core/models/courses.py:11 core/models/courses.py:30
+#: core/models/courses.py:47 core/models/publics.py:10
+msgid "Key"
+msgstr "Ключ"
+
+#: core/models/courses.py:12 core/models/courses.py:31
+#: core/models/courses.py:96 core/models/lessons.py:25
+#: core/models/publics.py:43
+msgid "Order"
+msgstr ""
+
+#: core/models/courses.py:18 core/models/courses.py:27
+#: core/models/courses.py:62
+msgid "Category"
+msgstr "Категория"
+
+#: core/models/courses.py:19
+msgid "Categories"
+msgstr "Категории"
+
+#: core/models/courses.py:37 core/models/courses.py:66
+msgid "Subcategory"
+msgstr "Подкатегория"
+
+#: core/models/courses.py:38
+msgid "Subcategories"
+msgstr "Подкатегории"
+
+#: core/models/courses.py:53
+msgid "Language"
+msgstr "Язык"
+
+#: core/models/courses.py:54 core/models/courses.py:71
+msgid "Languages"
+msgstr "Языки"
+
+#: core/models/courses.py:68
+msgid "Poster"
+msgstr "Постер"
+
+#: core/models/courses.py:69 core/models/lessons.py:20
+msgid "About"
+msgstr "Краткое описание"
+
+#: core/models/courses.py:70
+msgid "Description"
+msgstr "Описание"
+
+#: core/models/courses.py:73
+msgid "Authors"
+msgstr "Авторы"
+
+#: core/models/courses.py:76 core/models/lessons.py:21
+msgid "Date created"
+msgstr "Дата создания"
+
+#: core/models/courses.py:77 core/models/lessons.py:22
+msgid "Last update"
+msgstr "Последнее обновление"
+
+#: core/models/courses.py:78
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: core/models/courses.py:84 core/models/courses.py:93
+#: core/models/lessons.py:14
+msgid "Course"
+msgstr "Курс"
+
+#: core/models/courses.py:85
+msgid "Courses"
+msgstr "Курсы"
+
+#: core/models/courses.py:102 core/models/lessons.py:18
+msgid "Chapter"
+msgstr "Раздел"
+
+#: core/models/courses.py:103
+msgid "Chapters"
+msgstr "Разделы"
+
+#: core/models/lessons.py:11 core/models/lessons.py:42
+#: core/models/publics.py:22 core/models/publics.py:41
+msgid "Title"
+msgstr "Заголовка"
+
+#: core/models/lessons.py:23
+msgid "Duration (min)"
+msgstr "Продолжительность (мин)"
+
+#: core/models/lessons.py:24
+msgid "Access"
+msgstr "Доступ"
+
+#: core/models/lessons.py:31 core/models/lessons.py:40
+msgid "Lesson"
+msgstr "Урок"
+
+#: core/models/lessons.py:32
+msgid "Lessons"
+msgstr "Уроки"
+
+#: core/models/lessons.py:43
+msgid "File"
+msgstr "Файл"
+
+#: core/models/lessons.py:49
+msgid "Lesson doc"
+msgstr "Документ урока"
+
+#: core/models/lessons.py:50
+msgid "Lesson docs"
+msgstr "Документы урока"
+
+#: core/models/publics.py:9 core/models/publics.py:16 core/models/publics.py:25
+msgid "Blog category"
+msgstr "Категория блога"
+
+#: core/models/publics.py:17
+msgid "Blog categories"
+msgstr "Категории блогов"
+
+#: core/models/publics.py:27
+msgid "Shortcut"
+msgstr "Краткое описание"
+
+#: core/models/publics.py:28 core/models/publics.py:42
+msgid "Content"
+msgstr "Контент"
+
+#: core/models/publics.py:29
+msgid "Created at"
+msgstr "Создано"
+
+#: core/models/publics.py:35
+msgid "Blog"
+msgstr "Блог"
+
+#: core/models/publics.py:36
+msgid "Blogs"
+msgstr "Блоги"
+
+#: core/models/publics.py:49
+msgid "FAQ"
+msgstr "FAQ"
+
 #: core/models/users.py:15
 msgid "The user must have an username"
 msgstr "У пользователя должно быть имя пользователя"
@@ -136,7 +293,9 @@ msgstr "Активный"
 msgid ""
 "Designates whether this user should be treated as active.Unselect this "
 "instead of deleting accounts."
-msgstr "Указывает, следует ли считать этого пользователя активным.Снимите этот флажок вместо удаления учетных записей."
+msgstr ""
+"Указывает, следует ли считать этого пользователя активным.Снимите этот "
+"флажок вместо удаления учетных записей."
 
 #: core/models/users.py:54
 msgid "date joined"

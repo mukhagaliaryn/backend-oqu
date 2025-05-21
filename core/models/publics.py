@@ -24,7 +24,8 @@ class Blog(models.Model):
         BlogCategory, on_delete=models.CASCADE,
         related_name='blogs', verbose_name=_('Blog category')
     )
-    content = models.TextField(_('Content'))
+    shortcut = models.TextField(_('Shortcut'), max_length=300, blank=True, null=True)
+    content = models.TextField(_('Content'), blank=True, null=True)
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
 
     def __str__(self):
@@ -34,3 +35,18 @@ class Blog(models.Model):
         verbose_name = _('Blog')
         verbose_name_plural = _('Blogs')
         ordering = ('-created_at', )
+
+
+# FAQ
+# ----------------------------------------------------------------------------------------------------------------------
+class FAQ(models.Model):
+    title = models.CharField(_('Title'), max_length=128)
+    content = models.TextField(_('Content'))
+    order = models.PositiveSmallIntegerField(_('Order'), default=0)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('FAQ')
+        ordering = ('order', )

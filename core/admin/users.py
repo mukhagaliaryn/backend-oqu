@@ -37,7 +37,7 @@ class UserAdmin(BaseUserAdmin):
     inlines = [AccountInline ]
 
 
-# Registrations
+# registrations
 # ----------------------------------------------------------------------------------------------------------------------
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
