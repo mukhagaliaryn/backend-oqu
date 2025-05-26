@@ -34,7 +34,7 @@ class MainCourseDetailSerializer(serializers.ModelSerializer):
 class MainBlogCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogCategory
-        fields = ('id', 'name', 'slug')
+        fields = ('id', 'name', 'slug', )
 
 
 # Blogs
