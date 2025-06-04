@@ -48,7 +48,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         _("active"), default=True,
         help_text=_(
             "Designates whether this user should be treated as active."
-            "Unselect this instead of deleting accounts."
+            "Unselect this instead of deleting account."
         ),
     )
     date_joined = models.DateTimeField(_("date joined"), auto_now=True)

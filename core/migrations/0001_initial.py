@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('avatar', models.ImageField(blank=True, null=True, upload_to='core/models/users/', verbose_name='Avatar')),
                 ('google_avatar', models.URLField(blank=True, null=True, verbose_name='Google avatar')),
                 ('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
-                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active.Unselect this instead of deleting accounts.', verbose_name='active')),
+                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active.Unselect this instead of deleting account.', verbose_name='active')),
                 ('date_joined', models.DateTimeField(auto_now=True, verbose_name='date joined')),
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),

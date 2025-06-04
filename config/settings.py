@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     # apps...
     'core.apps.CoreConfig',
     'apps.platform.main.apps.MainConfig',
-    'apps.platform.accounts.apps.AccountsConfig',
+    'apps.platform.account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -163,7 +163,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'core.authentication.BaseJWTAuthentication',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -174,10 +174,19 @@ REST_FRAMEWORK = {
 # Authentification settings
 # ----------------------------------------------------------------------------------------------------------------------
 
+AUTH_COOKIE = 'access'
+AUTH_COOKIE_ACCESS_MAX_AGE = timedelta(minutes=5)
+AUTH_COOKIE_REFRESH_MAX_AGE = timedelta(days=1)
+AUTH_COOKIE_SECURE = config('AUTH_COOKIE_SECURE') == 'True'
+AUTH_COOKIE_HTTP_ONLY = True
+AUTH_COOKIE_PATH = '/'
+AUTH_COOKIE_SAMESITE = 'None'
+
+
 # Simple JWT
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'BLACKLIST_AFTER_ROTATION': False,
 }
@@ -189,6 +198,8 @@ DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE': True,
     'SEND_CONFIRMATION_EMAIL': True,
     'SET_PASSWORD_RETYPE': True,
+    'SEND_ACTIVATION_EMAIL': True,
+    'ACTIVATION_URL': 'activation/{uid}/{token}',
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
     'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
     'PASSWORD_RESET_CONFIRM_URL': 'auth/password/reset/confirm/{uid}/{token}',
