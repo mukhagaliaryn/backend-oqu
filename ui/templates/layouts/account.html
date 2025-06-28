@@ -1,0 +1,70 @@
+{% extends 'layouts/workspace.html' %}
+{% load static %}
+
+
+{% block workspace_content %}
+<div class="">
+    <div class="pb-4 border-b">
+        <h1 class="text-2xl font-semibold">Аккаунт баптаулары</h1>
+        <span class="text-zinc-500">Пайдаланушының персоналды мәліметтері мен жүйелік баптаулары</span>
+    </div>
+    <div class="flex items-start gap-8 pt-4">
+        <ul class="w-64 grid gap-1">
+            <li>
+                <a 
+                    href="{% url 'profile' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/profile/' %}bg-zinc-100{% endif %}"
+                >
+                    Профиль
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="{% url 'account' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/account/' %}bg-zinc-100{% endif %}"
+                >
+                    Аккаунт
+                </a>
+            </li>
+            <!-- <li>
+                <a 
+                    href="{% url 'subscriptions' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/subscriptions/' %}bg-zinc-100{% endif %}"
+                >
+                    Тарифтік жазылымдар
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="{% url 'payments' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/payments/' %}bg-zinc-100{% endif %}"
+                >
+                    Төлемдер
+                </a>
+            </li> -->
+            <li>
+                <a 
+                    href="{% url 'password_change' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/password_change/' %}bg-zinc-100{% endif %}"
+                >
+                    Қауіпсіздік
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="{% url 'settings' %}"
+                    class="block py-2 px-4 text-medium rounded-md hover:underline hover:bg-zinc-100 {% if request.path == '/accounts/settings/' %}bg-zinc-100{% endif %}"
+                >
+                    Баптаулар
+                </a>
+            </li>
+        </ul>
+    
+        <div class="flex-1">
+            {% block account_content %}
+            {% endblock account_content %}
+        </div>
+        
+    </div>
+</div>
+{% endblock workspace_content %}

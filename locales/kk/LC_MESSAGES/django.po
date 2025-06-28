@@ -1,0 +1,712 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-23 18:24+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: apps/platform/accounts/forms/account.py:11
+#: apps/platform/accounts/forms/auth.py:13
+#: apps/platform/accounts/forms/auth.py:30 core/models/users.py:35
+msgid "email"
+msgstr "Электронды пошта"
+
+#: apps/platform/accounts/forms/account.py:15
+msgid "If you want to change your email, write to us!"
+msgstr "Егер сіз электрондық поштаңызды өзгерткіңіз келсе, бізге жазыңыз!"
+
+#: apps/platform/accounts/forms/account.py:18
+#: apps/platform/accounts/forms/auth.py:36 core/models/users.py:37
+msgid "username"
+msgstr "Пайдаланушы аты"
+
+#: apps/platform/accounts/forms/account.py:22
+msgid "If you want to change your username, write to us!"
+msgstr "Пайдаланушы атыңызды өзгерткіңіз келсе, бізге жазыңыз!"
+
+#: apps/platform/accounts/forms/account.py:25
+#: apps/platform/accounts/forms/auth.py:42 core/models/users.py:40
+msgid "First name"
+msgstr "Есімі"
+
+#: apps/platform/accounts/forms/account.py:31
+#: apps/platform/accounts/forms/auth.py:48 core/models/users.py:41
+msgid "Last name"
+msgstr "Тегі"
+
+#: apps/platform/accounts/forms/account.py:51 core/models/accounts.py:26
+msgid "Birthday"
+msgstr "Туылған күні"
+
+#: apps/platform/accounts/forms/account.py:64
+msgid "Old password"
+msgstr "Ескі құпиясөз"
+
+#: apps/platform/accounts/forms/account.py:70
+msgid "New password"
+msgstr "Жаңа құпиясөз"
+
+#: apps/platform/accounts/forms/account.py:76
+msgid "Confirm new password"
+msgstr "Жаңа құпиясөзді растаңыз"
+
+#: apps/platform/accounts/forms/auth.py:19
+#: apps/platform/accounts/forms/auth.py:54
+msgid "Password"
+msgstr "Құпиясөз"
+
+#: apps/platform/accounts/forms/auth.py:60
+msgid "Password confirm"
+msgstr "Құпиясөзді растау"
+
+#: apps/platform/accounts/views/account.py:19
+msgid "Profile saved"
+msgstr "Профиль сақталды"
+
+#: apps/platform/accounts/views/account.py:40
+msgid "Account saved"
+msgstr "Аккаунт сақталды"
+
+#: apps/platform/accounts/views/account.py:83
+msgid "Password changed"
+msgstr "Құпиясөз өзгертілді"
+
+#: apps/platform/accounts/views/account.py:86
+msgid "Failed to change password"
+msgstr "Құпиясөзді өзгерту орындалмады"
+
+#: apps/platform/workspace/services/course.py:44
+msgid "This lesson has no content to start."
+msgstr "Бұл сабақтың материалдары жоқ"
+
+#: apps/platform/workspace/services/course.py:66
+msgid "This lesson started"
+msgstr "Сабақ басталды"
+
+#: apps/platform/workspace/services/course.py:83
+msgid "Text content already finished"
+msgstr "Мәтінді оқылып, аяқталып қойған"
+
+#: apps/platform/workspace/services/course.py:97
+msgid "Video already finished"
+msgstr "Бейнесабақ аяқталып қойған"
+
+#: apps/platform/workspace/services/course.py:131
+msgid "Test already finished"
+msgstr "Тест аяқталып қойған"
+
+#: apps/platform/workspace/services/course.py:147
+msgid "Text not completed."
+msgstr "Мәтін аяқталмады"
+
+#: apps/platform/workspace/services/course.py:155
+msgid "Video not completed."
+msgstr "Бейнесабақ аяқталмады"
+
+#: apps/platform/workspace/services/course.py:163
+msgid "Test not completed."
+msgstr "Тест аяқталмады"
+
+#: apps/platform/workspace/services/course.py:177
+msgid "Lesson completed successfully."
+msgstr "Сабақ аяқталды"
+
+#: apps/platform/workspace/services/course.py:179
+msgid "Not all required lesson parts completed."
+msgstr "Сабақтың барлық қажетті бөліктері аяқталған жоқ"
+
+#: apps/platform/workspace/views/main.py:98
+msgid "There is no material in this course"
+msgstr "Бұл курста ешқандай материал жоқ"
+
+#: apps/platform/workspace/views/main.py:118
+msgid "You have successfully enrolled in the course"
+msgstr "Курсқа сәтті жазылдыңыз"
+
+#: config/settings.py:145
+msgid "Kazakh"
+msgstr "Қазақша"
+
+#: config/settings.py:146
+msgid "Russian"
+msgstr "Русский"
+
+#: config/settings.py:147
+msgid "English"
+msgstr "English"
+
+#: core/admin/courses.py:54
+msgid "Lesson link"
+msgstr "Сабақ сілтемесі"
+
+#: core/admin/lessons.py:44
+msgid "Test link"
+msgstr "Тест сілтемесі"
+
+#: core/admin/lessons.py:70
+msgid "Question link"
+msgstr "Сұрақ сілтемесі"
+
+#: core/admin/progress.py:30
+msgid "User lesson link"
+msgstr "Пайдаланушының сабақ сілтемесі"
+
+#: core/admin/progress.py:70
+msgid "User test link"
+msgstr "Пайдаланушының тест сілтемесі"
+
+#: core/admin/users.py:35
+msgid "Personal data"
+msgstr "Жеке деректер"
+
+#: core/admin/users.py:36
+msgid "Permissions"
+msgstr "Рұқсаттамалар"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Модельдер | Регистраторлар"
+
+#: core/models/accounts.py:11 core/models/accounts.py:21
+#: core/models/progress.py:17 core/models/progress.py:40
+#: core/models/progress.py:73 core/models/progress.py:100
+#: core/models/progress.py:126 core/models/progress.py:152
+#: core/models/progress.py:179 core/models/subscriptions.py:36
+#: core/models/subscriptions.py:68 core/models/users.py:72
+msgid "User"
+msgstr "Пайдаланушы"
+
+#: core/models/accounts.py:12
+msgid "Student"
+msgstr "Білім алушы"
+
+#: core/models/accounts.py:13
+msgid "Teacher"
+msgstr "Оқытушы"
+
+#: core/models/accounts.py:16
+msgid "Undefined"
+msgstr "Белгісіз"
+
+#: core/models/accounts.py:17
+msgid "Male"
+msgstr "Ер"
+
+#: core/models/accounts.py:18
+msgid "Female"
+msgstr "Әйел"
+
+#: core/models/accounts.py:23
+msgid "Account type"
+msgstr "Аккаунт түрі"
+
+#: core/models/accounts.py:27
+msgid "Gender"
+msgstr "Жынысы"
+
+#: core/models/accounts.py:28
+msgid "Bio"
+msgstr "Биография"
+
+#: core/models/accounts.py:34
+msgid "Account"
+msgstr "Аккаунт"
+
+#: core/models/accounts.py:35
+msgid "Accounts"
+msgstr "Аккаунттар"
+
+#: core/models/courses.py:10 core/models/courses.py:29
+#: core/models/courses.py:46 core/models/courses.py:59
+#: core/models/courses.py:95 core/models/subscriptions.py:12
+msgid "Name"
+msgstr "Атауы"
+
+#: core/models/courses.py:11 core/models/courses.py:30
+#: core/models/courses.py:47
+msgid "Key"
+msgstr "Кілттік сөз"
+
+#: core/models/courses.py:12 core/models/courses.py:31
+#: core/models/courses.py:96 core/models/lessons.py:25
+#: core/models/lessons.py:66 core/models/lessons.py:84
+#: core/models/lessons.py:105 core/models/lessons.py:129
+#: core/models/subscriptions.py:18
+msgid "Order"
+msgstr "Реттілік"
+
+#: core/models/courses.py:18 core/models/courses.py:27
+#: core/models/courses.py:62
+msgid "Category"
+msgstr "Категория"
+
+#: core/models/courses.py:19
+msgid "Categories"
+msgstr "Категориялар"
+
+#: core/models/courses.py:37 core/models/courses.py:66
+msgid "Subcategory"
+msgstr "Субкатегория"
+
+#: core/models/courses.py:38
+msgid "Subcategories"
+msgstr "Субкатегориялар"
+
+#: core/models/courses.py:53
+msgid "Language"
+msgstr "Тіл"
+
+#: core/models/courses.py:54 core/models/courses.py:71
+msgid "Languages"
+msgstr "Тілдер"
+
+#: core/models/courses.py:68
+msgid "Poster"
+msgstr "Постер"
+
+#: core/models/courses.py:69 core/models/lessons.py:20
+msgid "About"
+msgstr "Қысқа сипаттама"
+
+#: core/models/courses.py:70 core/models/lessons.py:104
+msgid "Description"
+msgstr "Толық сипаттама"
+
+#: core/models/courses.py:73
+msgid "Authors"
+msgstr "Авторлар"
+
+#: core/models/courses.py:76 core/models/lessons.py:21
+msgid "Date created"
+msgstr "Шыққан уақыты"
+
+#: core/models/courses.py:77 core/models/lessons.py:22
+#: core/models/subscriptions.py:43
+msgid "Last update"
+msgstr "Соңғы өзгеріс"
+
+#: core/models/courses.py:78
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: core/models/courses.py:84 core/models/courses.py:93
+#: core/models/lessons.py:14 core/models/progress.py:21
+msgid "Course"
+msgstr "Курс"
+
+#: core/models/courses.py:85
+msgid "Courses"
+msgstr "Курстар"
+
+#: core/models/courses.py:102 core/models/lessons.py:18
+#: core/models/progress.py:44
+msgid "Chapter"
+msgstr "Бөлім"
+
+#: core/models/courses.py:103
+msgid "Chapters"
+msgstr "Бөлімдер"
+
+#: core/models/lessons.py:11 core/models/lessons.py:42
+#: core/models/lessons.py:103
+msgid "Title"
+msgstr "Тақырыбы"
+
+#: core/models/lessons.py:23
+msgid "Duration (min)"
+msgstr "Ұзақтығы (мин)"
+
+#: core/models/lessons.py:24
+msgid "Access"
+msgstr "Рұқсаттама"
+
+#: core/models/lessons.py:31 core/models/lessons.py:40
+#: core/models/lessons.py:62 core/models/lessons.py:81
+#: core/models/lessons.py:101 core/models/progress.py:77
+msgid "Lesson"
+msgstr "Сабақ"
+
+#: core/models/lessons.py:32
+msgid "Lessons"
+msgstr "Сабақтар"
+
+#: core/models/lessons.py:43
+msgid "File"
+msgstr "Құжат"
+
+#: core/models/lessons.py:49
+msgid "Lesson doc"
+msgstr "Сабақ материалы"
+
+#: core/models/lessons.py:50
+msgid "Lesson docs"
+msgstr "Сабақ материалдары"
+
+#: core/models/lessons.py:56
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core/models/lessons.py:57
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: core/models/lessons.py:64
+msgid "URL type"
+msgstr "URL түрі"
+
+#: core/models/lessons.py:65
+msgid "URL"
+msgstr "URL сілтеме"
+
+#: core/models/lessons.py:69
+msgid "Video: {}"
+msgstr "Видео: {}"
+
+#: core/models/lessons.py:72 core/models/progress.py:104
+msgid "Video"
+msgstr "Видео"
+
+#: core/models/lessons.py:73
+msgid "Videos"
+msgstr "Видеолар"
+
+#: core/models/lessons.py:83
+msgid "Content"
+msgstr "Контент"
+
+#: core/models/lessons.py:87
+msgid "Text: {}"
+msgstr "Мәтін: {}"
+
+#: core/models/lessons.py:90 core/models/progress.py:130
+msgid "Text"
+msgstr "Мәтін"
+
+#: core/models/lessons.py:91
+msgid "Texts"
+msgstr "Мәтіндер"
+
+#: core/models/lessons.py:108
+msgid "Test: {}"
+msgstr "Тест: {}"
+
+#: core/models/lessons.py:111 core/models/lessons.py:125
+#: core/models/progress.py:156 core/models/progress.py:183
+msgid "Test"
+msgstr "Тест"
+
+#: core/models/lessons.py:112
+msgid "Tests"
+msgstr "Тесттер"
+
+#: core/models/lessons.py:119
+msgid "Simple answer"
+msgstr "Бір жауапты"
+
+#: core/models/lessons.py:120
+msgid "Multiple answer"
+msgstr "Көп жауапты"
+
+#: core/models/lessons.py:127
+msgid "Question text"
+msgstr "Сұрақ мәтіні"
+
+#: core/models/lessons.py:128
+msgid "Question type"
+msgstr "Сұрақ түрі"
+
+#: core/models/lessons.py:132
+msgid "Question: ID{}"
+msgstr "Сұрақ: ID{}"
+
+#: core/models/lessons.py:135 core/models/lessons.py:144
+#: core/models/progress.py:187
+msgid "Question"
+msgstr "Сұрақ"
+
+#: core/models/lessons.py:136
+msgid "Questions"
+msgstr "Сұрақтар"
+
+#: core/models/lessons.py:146
+msgid "Answer text"
+msgstr "Жауап мәтіні"
+
+#: core/models/lessons.py:147
+msgid "Is correct"
+msgstr "Дұрыс жауап"
+
+#: core/models/lessons.py:150
+msgid "Answer: ID{}"
+msgstr "Жауап: ID{}"
+
+#: core/models/lessons.py:153
+msgid "Answer"
+msgstr "Жауап"
+
+#: core/models/lessons.py:154
+msgid "Answers"
+msgstr "Жауаптар"
+
+#: core/models/progress.py:10 core/models/progress.py:66
+msgid "No started"
+msgstr "Басталмады"
+
+#: core/models/progress.py:11 core/models/progress.py:67
+msgid "In progress"
+msgstr "Өтіліп жатыр"
+
+#: core/models/progress.py:12 core/models/progress.py:68
+msgid "Finished"
+msgstr "Аяқталды"
+
+#: core/models/progress.py:23 core/models/progress.py:50
+#: core/models/progress.py:83 core/models/progress.py:110
+#: core/models/progress.py:136 core/models/progress.py:162
+msgid "Score (%)"
+msgstr "Бағасы (%)"
+
+#: core/models/progress.py:24 core/models/progress.py:84
+#: core/models/subscriptions.py:72
+msgid "Status"
+msgstr "Статус"
+
+#: core/models/progress.py:25 core/models/progress.py:51
+#: core/models/progress.py:85 core/models/progress.py:111
+#: core/models/progress.py:137 core/models/progress.py:163
+msgid "Is completed"
+msgstr "Орындалды"
+
+#: core/models/progress.py:28
+msgid "Course: {} - User: {}"
+msgstr "Курс: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:31 core/models/progress.py:48
+#: core/models/progress.py:81
+msgid "User course"
+msgstr "Пайдаланушының курсы"
+
+#: core/models/progress.py:32
+msgid "User courses"
+msgstr "Пайдаланушының курстары"
+
+#: core/models/progress.py:54
+msgid "Chapter: {} - User: {}"
+msgstr "Бөлім: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:57
+msgid "User chapter"
+msgstr "Пайдаланушының бөлімі"
+
+#: core/models/progress.py:58
+msgid "User chapters"
+msgstr "Пайдаланушының бөлімдері"
+
+#: core/models/progress.py:88
+msgid "Lesson: {} - User: {}"
+msgstr "Сабақ: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:91 core/models/progress.py:108
+#: core/models/progress.py:134 core/models/progress.py:160
+msgid "User lesson"
+msgstr "Пайдаланушының сабағы"
+
+#: core/models/progress.py:92
+msgid "User lessons"
+msgstr "Пайдаланушының сабақтары"
+
+#: core/models/progress.py:114
+msgid "Video: {} - User: {}"
+msgstr "Видео: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:117
+msgid "User video"
+msgstr "Пайдаланушының сабақ видеосы"
+
+#: core/models/progress.py:118
+msgid "User videos"
+msgstr "Пайдаланушының сабақ видеолары"
+
+#: core/models/progress.py:140
+msgid "Text: {} - User: {}"
+msgstr "Мәтін: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:143
+msgid "User text"
+msgstr "Пайдаланушының сабақ мәтіні"
+
+#: core/models/progress.py:144
+msgid "User texts"
+msgstr "Пайдаланушының сабақ мәтіндері"
+
+#: core/models/progress.py:164
+msgid "Submitted at"
+msgstr "Ұсынылған"
+
+#: core/models/progress.py:167
+msgid "Test: {} - User: {}"
+msgstr "Тест: {} - Пайдаланушы: {}"
+
+#: core/models/progress.py:170
+msgid "User test"
+msgstr "Пайдаланушының сабақ тесті"
+
+#: core/models/progress.py:171
+msgid "User tests"
+msgstr "Пайдаланушының сабақ тесттері"
+
+#: core/models/progress.py:189
+msgid "Selected answers"
+msgstr "Таңдалған жауаптар"
+
+#: core/models/progress.py:193
+msgid "User answer: ID{} - User: {}"
+msgstr "Пайдаланушының жауабы: ID{} - Пайдаланушы: {}"
+
+#: core/models/progress.py:196
+msgid "User answer"
+msgstr "Пайдаланушының жауабы"
+
+#: core/models/progress.py:197
+msgid "User answers"
+msgstr "Пайдаланушының жауаптары"
+
+#: core/models/subscriptions.py:13
+msgid "Price"
+msgstr "Бағасы"
+
+#: core/models/subscriptions.py:14
+msgid "Duration days"
+msgstr "Күндік ұзақтығы"
+
+#: core/models/subscriptions.py:15
+msgid "Is default"
+msgstr "Бастапқы"
+
+#: core/models/subscriptions.py:16
+msgid "Is unlimited"
+msgstr "Шексіз"
+
+#: core/models/subscriptions.py:17 core/models/subscriptions.py:42
+msgid "Is active"
+msgstr "Белсенділік"
+
+#: core/models/subscriptions.py:29
+msgid "Subscription"
+msgstr "Тарифтік план"
+
+#: core/models/subscriptions.py:30
+msgid "Subscriptions"
+msgstr "Тарифтік пландар"
+
+#: core/models/subscriptions.py:39 core/models/subscriptions.py:69
+msgid "Plan"
+msgstr "Тарифтік план"
+
+#: core/models/subscriptions.py:40
+msgid "Start date"
+msgstr "Басталған уақыты"
+
+#: core/models/subscriptions.py:41
+msgid "End date"
+msgstr "Аяқталған уақыты"
+
+#: core/models/subscriptions.py:56
+msgid "User subscription"
+msgstr "Пайдаланушының жазылымы"
+
+#: core/models/subscriptions.py:57
+msgid "User subscriptions"
+msgstr "Пайдаланушының жазылымдары"
+
+#: core/models/subscriptions.py:63
+msgid "Pending"
+msgstr "Күтілуде"
+
+#: core/models/subscriptions.py:64
+msgid "Approved"
+msgstr "Қабылданды"
+
+#: core/models/subscriptions.py:65
+msgid "Rejected"
+msgstr "Қабылданбады"
+
+#: core/models/subscriptions.py:70
+msgid "Amount"
+msgstr "Суммасы"
+
+#: core/models/subscriptions.py:71
+msgid "Payment date"
+msgstr "Төлем күні"
+
+#: core/models/subscriptions.py:73
+msgid "Admin note"
+msgstr "Әкімші ескертпесі"
+
+#: core/models/subscriptions.py:79
+msgid "User payment"
+msgstr "Пайдаланушының төлемі"
+
+#: core/models/subscriptions.py:80
+msgid "User payments"
+msgstr "Пайдаланушының төлемдері"
+
+#: core/models/users.py:15
+msgid "The user must have an username"
+msgstr "Пайдаланушының аты болуы керек"
+
+#: core/models/users.py:17
+msgid "The user must have an email address"
+msgstr "Пайдаланушының электрондық пошта мекенжайы болуы керек"
+
+#: core/models/users.py:42
+msgid "Avatar"
+msgstr "Суреті"
+
+#: core/models/users.py:43
+msgid "Google avatar"
+msgstr "Google суреті"
+
+#: core/models/users.py:45
+msgid "staff status"
+msgstr "Қызметкер статусы"
+
+#: core/models/users.py:46
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+"Пайдаланушының қызметкер статусы, яғни осы администрация сайтына кіре "
+"алатынын белгілейді."
+
+#: core/models/users.py:49
+msgid "active"
+msgstr "Белсенділік"
+
+#: core/models/users.py:51
+msgid ""
+"Designates whether this user should be treated as active.Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Бұл пайдаланушыға белсенді ретінде қарау керек пе, әлде жоқ па, соны "
+"анықтайды."
+
+#: core/models/users.py:55
+msgid "date joined"
+msgstr "Тіркелген уақыты"
+
+#: core/models/users.py:73
+msgid "Users"
+msgstr "Пайдаланушылар"
+

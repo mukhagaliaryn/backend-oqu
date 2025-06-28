@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="w-full">
+    <aside 
+        id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen bg-zinc-50 transition-transform -translate-x-full border-r border-zinc-200 sm:translate-x-0"
+        aria-label="Sidebar"
+    >
+        <div class="flex items-center px-4 h-12">
+            <a href="{% url 'workspace' %}" class="flex">
+                <img src="{% static 'images/full-logo-white.svg' %}" class="w-16" alt="OQU platforms logo" />
+            </a>
+        </div>
+
+        <div class="px-2 py-4 overflow-y-auto" style="height: calc(100vh - 48px);">
+            <ul class="space-y-1 font-medium">
+                <li>
+                    <a 
+                        href="{% url 'workspace' %}"
+                        class="flex items-center p-2 text-zinc-900 rounded-md hover:bg-zinc-100 group {% if request.path == '/' %}bg-zinc-100{% endif %}"
+                    >
+                        {% if request.path == '/' %}
+                            <svg class="w-5 h-5 text-zinc-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
+                            </svg>
+                        {% else %}
+                            <svg class="w-5 h-5 text-zinc-500 transition duration-75 group-hover:text-zinc-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+                            </svg>
+                        {% endif %}
+                        <span class="ms-2">Басқару панелі</span>
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="{% url 'resources' %}"
+                        class="flex items-center p-2 text-zinc-900 rounded-md  hover:bg-zinc-100 group {% if request.path == '/resources/' %}bg-zinc-100{% endif %}"
+                    >
+                        {% if request.path == '/resources/' %}
+                            <svg class="w-5 h-5 text-zinc-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z"/>
+                                <path fill-rule="evenodd" d="M21.707 21.707a1 1 0 0 1-1.414 0l-3.5-3.5a1 1 0 0 1 1.414-1.414l3.5 3.5a1 1 0 0 1 0 1.414Z" clip-rule="evenodd"/>
+                            </svg>
+                        {% else %}
+                            <svg class="w-5 h-5 text-zinc-500 transition duration-75 group-hover:text-zinc-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        {% endif %}
+                        <span class="ms-2">Ресурстар</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="sm:ml-64">
+        <div class="w-full h-screen overflow-auto">
+            <nav class="sticky top-0 z-30 w-full bg-white/50 backdrop-blur-lg">
+                <div class="flex items-center justify-between h-12 px-4">
+                    <button 
+                        data-drawer-target="logo-sidebar" 
+                        data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-zinc-500 rounded-lg sm:hidden hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-200">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <span class="hidden sm:inline-block bg-zinc-100 text-zinc-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">
+                        v1.0.0
+                    </span>
+
+                    <div class="flex items-center">
+                        <div class="flex items-center ms-3">
+                            <div>
+                                <button type="button"
+                                    class="flex text-sm bg-zinc-800 rounded-full focus:ring-4 focus:ring-zinc-300 dark:focus:ring-zinc-600"
+                                    aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                    <span class="sr-only">Open user menu</span>
+                                    {% if user.avatar %}
+                                        <img 
+                                            class="w-8 h-8 rounded-full"
+                                            src="{% if request.user.avatar %}{{ request.user.avatar.url }}{% else %}https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg{% endif %}"
+                                            alt="user photo"
+                                            >
+                                    {% else %}
+                                        <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-950 text-base">
+                                            {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
+                                        </div>
+                                    {% endif %}
+                                </button>
+                            </div>
+    
+                            <div class="z-50 hidden list-none bg-white divide-y divide-zinc-100 rounded-lg shadow-sm border"
+                                id="dropdown-user">
+                                <div class="px-4 py-3" role="none">
+                                    <p class="text-sm text-zinc-900 dark:text-white" role="none">
+                                        {{ request.user.first_name }} {{ request.user.last_name }}
+                                    </p>
+                                    <p class="text-sm font-medium text-zinc-900 truncate dark:text-zinc-300" role="none">
+                                        {{ request.user.email }}
+                                    </p>
+                                </div>
+                                <ul class="py-1" role="none">
+                                    <li>
+                                        <a href="{% url 'profile' %}"
+                                            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                            role="menuitem">Профиль</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account' %}"
+                                            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                            role="menuitem">Аккаунт</a>
+                                    </li>
+                                    <li>
+                                        <form action="{% url 'logout' %}" method="post">
+                                            {% csrf_token %}
+                                            <button
+                                                class="block w-full text-left px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white">
+                                                Жүйеден шығу
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="max-w-[1980px] p-4">
+                {% block workspace_content %}
+                {% endblock workspace_content %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

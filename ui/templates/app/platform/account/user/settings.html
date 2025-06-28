@@ -1,0 +1,36 @@
+{% extends 'src/layouts/account.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+{% block title %}
+    Баптаулар
+{% endblock title %}
+
+{% block account_content %}
+<div class="max-w-2xl w-full grid gap-4">
+    <div class="border-b pb-4">
+        <h1 class="text-2xl font-semibold">Баптаулар</h1>
+        <span class="text-zinc-500">Жүйе баптауларын орнату</span>
+    </div>
+    <form action="{% url 'set_language' %}" method="post" class="max-w-48 w-full">
+        {% csrf_token %}
+        <label for="languages" class="block mb-2 font-medium text-zinc-900 dark:text-white">Тілді таңдау</label>
+        <select 
+            id="languages" 
+            name="language" 
+            onchange="this.form.submit()" 
+            class="bg-zinc-50 border border-zinc-300 text-zinc-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        >
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+              <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                {{ language.name_local }}
+              </option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+{% endblock account_content %}
