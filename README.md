@@ -1,7 +1,8 @@
 <p align="center">
-  <img 
-    src="ui/templates/static/images/full-logo-black.svg" 
-    alt="OQU platforms Logo" width="120">
+    <img 
+        src="ui/static/images/full-logo-black.svg" 
+        alt="OQU platforms Logo" width="120" 
+    />
 </p>
 <h3 align="center">OQU platforms</h3>
 <p align="center">
