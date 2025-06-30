@@ -51,7 +51,7 @@ def resources(request):
         'categories': categories,
         'user_course_ids': user_course_ids
     }
-    return render(request, 'pages/resources.html', context)
+    return render(request, 'app/platform/resources.html', context)
 
 
 # Course page
