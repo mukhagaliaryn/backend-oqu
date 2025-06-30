@@ -1,3 +1,4 @@
+from django.contrib.auth.views import PasswordResetConfirmView as BasePasswordResetConfirmView
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import login, logout
@@ -42,6 +43,18 @@ def register_view(request):
         form = UserRegisterForm()
 
     return render(request, 'app/platform/account/auth/register.html', {'form': form})
+
+
+
+# password reset confirm page
+class PasswordResetConfirmView(BasePasswordResetConfirmView):
+    template_name='app/platform/account/auth/password_reset_confirm.html'
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        messages.success(self.request, _('Сәтті құпиясөз ауыстырылды. Сіз жүйеге кірдіңіз'))
+        return redirect('workspace')
 
 
 # logout
