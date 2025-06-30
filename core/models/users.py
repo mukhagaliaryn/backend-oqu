@@ -53,6 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         ),
     )
     date_joined = models.DateTimeField(_("date joined"), auto_now=True)
+    last_profile_update = models.DateTimeField(_('Last user update'), null=True, blank=True)
 
     objects = UserManager()
 

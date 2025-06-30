@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 # login page
+# ----------------------------------------------------------------------------------------------------------------------
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('workspace')
@@ -19,7 +20,7 @@ def login_view(request):
             login(request, user)
             return redirect('workspace')
         else:
-            messages.error(request, _('Пайдаланушының аты немесе пароль қате кетті!'))
+            messages.error(request, _('Incorrect email or password'))
     else:
         form = AuthenticationForm()
 
@@ -27,6 +28,7 @@ def login_view(request):
 
 
 # register page
+# ----------------------------------------------------------------------------------------------------------------------
 def register_view(request):
     if request.user.is_authenticated:
         return redirect('workspace')
@@ -38,7 +40,7 @@ def register_view(request):
             login(request, user)
             return redirect('workspace')
         else:
-            messages.error(request, _('Тіркеу сәтсіз аяқталды. Деректерді тексеріңіз!'))
+            messages.error(request, _('An error occurred during the registration process'))
     else:
         form = UserRegisterForm()
 
@@ -47,17 +49,19 @@ def register_view(request):
 
 
 # password reset confirm page
+# ----------------------------------------------------------------------------------------------------------------------
 class PasswordResetConfirmView(BasePasswordResetConfirmView):
     template_name='app/platform/account/auth/password_reset_confirm.html'
 
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        messages.success(self.request, _('Сәтті құпиясөз ауыстырылды. Сіз жүйеге кірдіңіз'))
+        messages.success(self.request, _('Password reset successfully'))
         return redirect('workspace')
 
 
 # logout
+# ----------------------------------------------------------------------------------------------------------------------
 def logout_view(request):
     logout(request)
     return redirect('login')

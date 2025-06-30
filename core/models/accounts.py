@@ -26,6 +26,7 @@ class Account(models.Model):
     birthday = models.DateField(_('Birthday'), blank=True, null=True)
     gender = models.CharField(_('Gender'), max_length=64, choices=GENDER, default='undefined')
     bio = models.TextField(_('Bio'), max_length=255, blank=True, null=True)
+    last_account_update = models.DateTimeField(_('Last account update'), null=True, blank=True)
 
     def __str__(self):
         return f'{self.user}'

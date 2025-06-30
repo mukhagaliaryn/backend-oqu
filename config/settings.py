@@ -168,6 +168,7 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 MESSAGE_TAGS = {
     messages.SUCCESS: 'text-green-600',
     messages.WARNING: 'text-amber-600',
+    messages.INFO: 'text-blue-600',
     messages.ERROR: 'text-red-600',
 }
 

@@ -1,26 +1,80 @@
-{% extends 'src/layouts/account.html' %}
-{% load crispy_forms_tags %}
+{% extends 'layouts/account.html' %}
 
 
-{% block title %}
-    Аккаунт
-{% endblock title %}
+{% block title %}Аккаунт | OQU{% endblock title %}
+
 
 {% block account_content %}
 <div class="max-w-2xl w-full grid gap-4">
-    <div class="border-b pb-4">
-        <h1 class="text-2xl font-semibold">Аккаунт</h1>
-        <span class="text-zinc-500">Пайдаланушының аккаунт мәліметтері мен баптаулары</span>
+    <div class="border-b border-neutral-200 pb-4">
+        <h1 class="text-xl lg:text-2xl font-medium">Аккаунт</h1>
+        <span class="text-neutral-500">Пайдаланушының аккаунт мәліметтері мен баптаулары</span>
     </div>
-   <form method="post">
+   <form method="post" class="grid gap-4 lg:max-w-md">
         {% csrf_token %}
-        {{ form|crispy }}
 
-        <button 
-            type="submit"
-            class="px-4 py-2 text-sm font-medium text-center text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500">
-            Сақтау
-        </button>
+        <!-- Birthday field -->
+        <div class="relative">
+            <label for="birthday" class="block mb-2 text-sm font-medium">Туылған күні:</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect width="18" height="18" x="3" y="4" rx="2" />
+                        <path d="M3 10h18" />
+                    </svg>
+                </div>
+                <input
+                    datepicker 
+                    id="birthday" 
+                    type="text"
+                    name="birthday"
+                    value="{{ form.birthday.value }}"
+                    class="bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-lg focus:ring-neutral-950 focus:border-neutral-950 block w-full ps-10 p-2.5"
+                    placeholder="Туылған күн датасы">
+            </div>
+        </div>
+
+        <!-- Gender field -->
+        <div class="relative">
+            <label for="gender" class="block mb-2 text-sm font-medium">
+                Пол
+            </label>
+            <select 
+                id="gender"
+                name="gender"
+                class="bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-lg focus:ring-neutral-950 focus:border-neutral-950 block w-full p-2.5"
+            >
+                <option value="undefined" selected>Таңдалмады</option>
+                <option value="male">Ер</option>
+                <option value="famale">Әйел</option>
+            </select>
+        </div>
+
+        <!-- Bio field -->
+        <div class="relative">
+            <label for="bio" class="block mb-2 text-sm font-medium">Биография</label>
+            <textarea 
+                id="bio"
+                name="bio"
+                rows="4" 
+                class="block p-2.5 w-full text-sm text-neutral-950 bg-neutral-50 rounded-lg border border-neutral-300 focus:ring-neutral-950 focus:border-neutral-950" 
+                placeholder="Шағын анықтама..."
+            >{{ form.bio.value }}</textarea>
+        </div>
+        
+        <!-- Submit -->
+        <div class="relative">
+            <button 
+                type="submit"
+                class="w-full lg:w-auto px-4 py-2 font-medium text-center text-white bg-neutral-950 rounded-lg transition-all hover:bg-neutral-800 focus:ring-2 focus:outline-none focus:ring-neutral-500"
+            >
+                Сақтау
+            </button>
+        </div>
+
    </form>
 </div>
 {% endblock account_content %}
