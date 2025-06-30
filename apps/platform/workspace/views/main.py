@@ -83,7 +83,6 @@ def course_detail(request, pk):
 
 # POST actions
 # ----------------------------------------------------------------------------------------------------------------------
-# create user course handler
 @require_POST
 @login_required
 def create_user_course_handler(request, pk):

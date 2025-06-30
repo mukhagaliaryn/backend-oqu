@@ -27,11 +27,12 @@
                     </svg>
                 </div>
                 <input
-                    datepicker 
+                    datepicker
+                    datepicker-format="dd.mm.yyyy"
                     id="birthday" 
                     type="text"
                     name="birthday"
-                    value="{{ form.birthday.value }}"
+                    value="{{ form.birthday.value|date:'d-m-Y' }}"
                     class="bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-lg focus:ring-neutral-950 focus:border-neutral-950 block w-full ps-10 p-2.5"
                     placeholder="Туылған күн датасы">
             </div>
@@ -47,9 +48,9 @@
                 name="gender"
                 class="bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-lg focus:ring-neutral-950 focus:border-neutral-950 block w-full p-2.5"
             >
-                <option value="undefined" selected>Таңдалмады</option>
-                <option value="male">Ер</option>
-                <option value="famale">Әйел</option>
+                <option value="undefined" {% if account.gender == 'undefined' %}selected{% endif %}>Таңдалмады</option>
+                <option value="male" {% if account.gender == 'male' %}selected{% endif %}>Ер</option>
+                <option value="female" {% if account.gender == 'female' %}selected{% endif %}>Әйел</option>
             </select>
         </div>
 
@@ -74,7 +75,6 @@
                 Сақтау
             </button>
         </div>
-
    </form>
 </div>
 {% endblock account_content %}
