@@ -14,10 +14,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	{% tailwind_css %}
-
-
-	<!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- Swiper JS CSS -->
 </head>
 
 <body class="font-inter overflow-hidden text-sm text-neutral-950">
@@ -54,37 +52,9 @@
 	{% block content %}
 	{% endblock content %}
 
-	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-	<script>
-		var swiper = new Swiper(".userCoursesSwiper", {
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
-			},
-			slidesPerView: 1,
-			spaceBetween: 16,
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			mousewheel: true,
-			keyboard: true,
-			breakpoints: {
-				768: {
-					slidesPerView: 2
-				},
-				1024: {
-					slidesPerView: 3
-				},
-				1280: {
-					slidesPerView: 4
-				},
-				1536: {
-					slidesPerView: 5
-				}
-			}
-		});
-	</script>
+	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>  <!-- Flowbite -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <!-- Swiper -->
+	{% block js %}
+	{% endblock js %}
 </body>
-
 </html>

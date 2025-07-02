@@ -81,5 +81,5 @@ def user_course_lesson_view(request, user_course_pk, user_chapter_pk, user_lesso
         'next_lesson': next_lesson,
         'can_access_next': can_access_next
     }
-    return render(request, 'pages/user_course/lesson/index.html', context)
+    return render(request, 'app/platform/user_course/lesson/page.html', context)
 

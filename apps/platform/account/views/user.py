@@ -1,4 +1,3 @@
-from datetime import timedelta
 from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash

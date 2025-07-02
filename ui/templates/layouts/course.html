@@ -7,23 +7,22 @@
 <div class="h-screen overflow-hidden">
     <!-- Lesson navbar -->
     <!-- ============================================================================================================================================ -->
-    <div class="sticky z-40 top-0 w-full border-b">
+    <div class="sticky z-40 top-0 w-full border-b border-neutral-200">
         <div class="h-12 flex justify-between items-center px-4">
+            <!-- Logo -->
             <div class="flex items-center">
                 <a href="{% url 'workspace' %}" class="flex">
                     <img src="{% static 'images/full-logo-white.svg' %}" class="w-16" alt="OQU platforms logo" />
                 </a>
             </div>
 
+            <!-- User settings -->
             <div class="flex items-center">
                 <div class="flex items-center ms-3">
                     <div>
-                        <button 
-                            type="button"
-                            class="flex bg-zinc-800 rounded-full focus:ring-4 focus:ring-zinc-300"
-                            aria-expanded="false" 
-                            data-dropdown-toggle="dropdown-user"
-                        >
+                        <button type="button"
+                            class="flex bg-neutral-800 rounded-full focus:ring-4 focus:ring-neutral-300 dark:focus:ring-neutral-600"
+                            aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
                             {% if user.avatar %}
                                 <img 
@@ -32,7 +31,7 @@
                                     alt="user photo"
                                     >
                             {% else %}
-                                <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-950 text-base">
+                                <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-950 text-base">
                                     {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
                                 </div>
                             {% endif %}
@@ -40,33 +39,33 @@
                     </div>
 
                     <div 
-                        class="hidden list-none bg-white divide-y divide-zinc-100 rounded-lg shadow-sm border"
                         id="dropdown-user"
+                        class="z-50 hidden list-none bg-white divide-y divide-neutral-100 rounded-lg shadow-sm border border-neutral-200"
                     >
                         <div class="px-4 py-3" role="none">
-                            <p class="text-sm text-zinc-900 dark:text-white" role="none">
+                            <p class="font-semibold text-neutral-950" role="none">
                                 {{ request.user.first_name }} {{ request.user.last_name }}
                             </p>
-                            <p class="text-sm font-medium text-zinc-900 truncate dark:text-zinc-300" role="none">
+                            <p class="font-medium text-neutral-950 truncate" role="none">
                                 {{ request.user.email }}
                             </p>
                         </div>
                         <ul class="py-1" role="none">
                             <li>
                                 <a href="{% url 'profile' %}"
-                                    class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                    class="block px-4 py-2 font-medium hover:bg-neutral-100"
                                     role="menuitem">Профиль</a>
                             </li>
                             <li>
                                 <a href="{% url 'account' %}"
-                                    class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white"
+                                    class="block px-4 py-2 font-medium hover:bg-neutral-100"
                                     role="menuitem">Аккаунт</a>
                             </li>
                             <li>
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}
                                     <button
-                                        class="block w-full text-left px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-600 dark:hover:text-white">
+                                        class="block w-full text-left px-4 py-2 font-medium hover:bg-neutral-100">
                                         Жүйеден шығу
                                     </button>
                                 </form>
@@ -75,53 +74,57 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
+    <!-- Lesson content -->
+    <!-- ============================================================================================================================================ -->
     <div class="w-full flex overflow-hidden" style="height: calc(100vh - 48px);">
         <!-- Lesson control -->
-        <!-- ============================================================================================================================================ -->
         <div class="flex-1 overflow-auto">
             {% block course_content %}
             {% endblock course_content %}
         </div>
 
         <!-- Lesson lists -->
-        <!-- ============================================================================================================================================ -->
-        <div class="max-w-md w-full sticky top-12 border-l overflow-auto">
+        <div class="max-w-md w-full sticky top-12 border-l border-neutral-200 overflow-auto">
             <div 
                 id="accordion-flush" 
                 data-accordion="collapse"
-                data-active-classes="bg-white text-zinc-900"
-                data-inactive-classes="text-zinc-500"
+                data-active-classes="bg-white text-neutral-950"
+                data-inactive-classes="text-neutral-500"
             >
                 {% for item in user_chapters %}
                     <div id="accordion-chapter-heading-{{ item.id }}">
                         <button 
                             type="button"
-                            class="flex items-center justify-between w-full p-4 font-medium rtl:text-right text-zinc-500 border-b border-zinc-200"
+                            class="flex items-center justify-between w-full p-4 font-medium rtl:text-right text-neutral-500 border-b border-neutral-200"
                             data-accordion-target="#accordion-chapter-body-{{ item.id }}" 
                             aria-expanded="true" 
                             aria-controls="accordion-chapter-{{ item.id }}"
                         >
                             <div class="flex items-center gap-4">
-                                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 19V6a1 1 0 0 1 1-1h4.032a1 1 0 0 1 .768.36l1.9 2.28a1 1 0 0 0 .768.36H16a1 1 0 0 1 1 1v1M3 19l3-8h15l-3 8H3Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-folder-open-icon lucide-folder-open">
+                                    <path
+                                        d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" />
                                 </svg>
-                                <span>{{ item.chapter.name }}</span>
+                                <h1 class="line-clamp-1">{{ item.chapter.name }}</span>
                             </div>
 
-                            <svg 
-                                data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"
-                            >
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                data-accordion-icon
+                                class="lucide lucide-chevron-down-icon lucide-chevron-down rotate-180 shrink-0">
+                                <path d="m6 9 6 6 6-6" />
                             </svg>
                         </button>
                     </div>
                     <div
                         id="accordion-chapter-body-{{ item.id }}" 
-                        class="hidden p-4 bg-zinc-50" 
+                        class="hidden p-4 bg-neutral-50" 
                         aria-labelledby="accordion-chapter-heading-{{ item.id }}"
                     >
                         {% for user_lesson in user_lessons_by_chapter|get_item:item.chapter.id %}
@@ -129,20 +132,28 @@
                             {% url 'user_course_lesson' user_course.id item.id user_lesson.id as user_lesson_url %}
                             <a
                                 href="{{ user_lesson_url }}" 
-                                class="grid gap-4 p-4 mb-2 rounded-lg border {% if user_lesson.is_completed %}bg-green-50 border-green-300{% else %}{% if request.path == user_lesson_url %}bg-blue-50 border-blue-300{% else %}bg-white{% endif %}{% endif %}"
+                                class="grid gap-4 p-4 mb-2 rounded-lg border {% if user_lesson.is_completed %}bg-green-50 border-green-300{% else %}{% if request.path == user_lesson_url %}bg-blue-50 border-blue-300{% else %}bg-white border-neutral-200{% endif %}{% endif %}"
                             >
                                 <div class="flex justify-between">
-                                    <div class="flex gap-4 items-center">
-                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.2857 7V5.78571c0-.43393-.3482-.78571-.7778-.78571H6.06345c-.42955 0-.77777.35178-.77777.78571V16m0 0h-1c-.55229 0-1 .4477-1 1v1c0 .5523.44771 1 1 1h5m-4-3h4m7.00002-6v3c0 .5523-.4477 1-1 1h-3m8-3v8c0 .5523-.4477 1-1 1h-6c-.5523 0-1-.4477-1-1v-5.397c0-.2536.0963-.4977.2696-.683l2.434-2.603c.189-.2022.4535-.317.7304-.317h3.566c.5523 0 1 .4477 1 1Z"/>
-                                        </svg>
-                                        <h1 class="font-medium">{{ user_lesson.lesson.title }}</h1>
-                                    </div>
                                     <div class="flex gap-2 items-center">
-                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-box-icon lucide-file-box">
+                                            <path d="M14.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                            <path
+                                                d="M3 13.1a2 2 0 0 0-1 1.76v3.24a2 2 0 0 0 .97 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01Z" />
+                                            <path d="M7 17v5" />
+                                            <path d="M11.7 14.2 7 17l-4.7-2.8" />
                                         </svg>
-                                        <span class="text-zinc-500">{{ user_lesson.lesson.duration }}:00 мин</span>
+                                        <h1 class="font-medium line-clamp-1">{{ user_lesson.lesson.title }}</h1>
+                                    </div>
+                                    <div class="w-14 flex gap-1 items-center justify-center text-neutral-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock9-icon lucide-clock-9">
+                                            <path d="M12 6v6H8" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        <span>{{ user_lesson.lesson.duration }}:00</span>
                                     </div>
                                 </div>
                                 
@@ -151,14 +162,23 @@
                                     <div class="grid gap-2 pt-2 px-2 border-t {% if user_lesson.is_completed %}border-green-300{% else %}border-blue-300{% endif %} border-dashed">
                                         <!-- user text -->
                                         {% if user_text %}
-                                            <div class="flex items-center gap-2 {% if user_text.is_completed %}font-medium text-green-600{% else %}{% if section == 'text' %}font-medium{% else %}text-zinc-500{% endif %}{% endif %}">
+                                            <div class="flex items-center gap-2 {% if user_text.is_completed %}font-medium text-green-600{% else %}{% if section == 'text' %}font-medium{% else %}text-neutral-500{% endif %}{% endif %}">
                                                 {% if user_text.is_completed %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <path d="m9 12 2 2 4-4" />
                                                     </svg>
                                                 {% else %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-file-text-icon lucide-file-text">
+                                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                                        <path d="M10 9H8" />
+                                                        <path d="M16 13H8" />
+                                                        <path d="M16 17H8" />
                                                     </svg>
                                                 {% endif %}
                                                 <span class="">Мәтін</span>
@@ -169,12 +189,19 @@
                                         {% if user_video %}
                                             <div class="flex items-center gap-2 {% if user_video.is_completed %}font-medium text-green-600{% else %}{% if section == 'video' %}font-medium{% else %}text-zinc-500{% endif %}{% endif %}">
                                                 {% if user_video.is_completed %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <path d="m9 12 2 2 4-4" />
                                                     </svg>
                                                 {% else %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-file-video-icon lucide-file-video">
+                                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                                        <path d="m10 11 5 3-5 3v-6Z" />
                                                     </svg>
                                                 {% endif %}
                                                 <span class="">Бейнесабақ</span>
@@ -185,12 +212,21 @@
                                         {% if user_test %}
                                             <div class="flex items-center gap-2 {% if user_test.is_completed %}font-medium text-green-600{% else %}{% if section == 'test' %}font-medium{% else %}text-zinc-500{% endif %}{% endif %}">
                                                 {% if user_test.is_completed %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <path d="m9 12 2 2 4-4" />
                                                     </svg>
                                                 {% else %}
-                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-list-todo-icon lucide-list-todo">
+                                                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                                                        <path d="m3 17 2 2 4-4" />
+                                                        <path d="M13 6h8" />
+                                                        <path d="M13 12h8" />
+                                                        <path d="M13 18h8" />
                                                     </svg>
                                                 {% endif %}
                                                 <span class="">Тест тапсыру</span>

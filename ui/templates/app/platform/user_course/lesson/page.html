@@ -1,8 +1,8 @@
-{% extends 'src/layouts/course.html' %}
+{% extends 'layouts/course.html' %}
 {% load static %}
 
 
-{% block title %}{{ user_lesson.lesson.title }} - OQU platforms{% endblock title %}
+{% block title %}{{ user_lesson.lesson.title }} | OQU{% endblock title %}
 
 
 {% block course_content %}
@@ -10,29 +10,29 @@
     <!-- Lesson start -->
     <!-- ============================================================================================================================================ -->
     {% if user_lesson.status == 'no-started' %}
-        {% include 'src/components/user_course/lesson_start.html'  %}
+        {% include 'components/user_course/lesson_start.html'  %}
     
     <!-- Lesson content -->
     <!-- ============================================================================================================================================ -->
     {% elif user_lesson.status == 'in-progress' %}
         <div class="grid gap-4">
             <!-- Lesson stepper -->
-            {% include 'src/components/user_course/stepper.html' %}
+            {% include 'components/user_course/stepper.html' %}
 
             <!-- Content -->
             {% if section == 'text' and user_text %}
-                {% include 'src/components/user_course/lesson_text.html'  %}
+                {% include 'components/user_course/lesson_text.html'  %}
             {% elif section == 'video' and user_video %}
-                {% include 'src/components/user_course/lesson_video.html'  %}
+                {% include 'components/user_course/lesson_video.html'  %}
             {% elif section == 'test' and user_test %}
-                {% include 'src/components/user_course/lesson_test.html'  %}
+                {% include 'components/user_course/lesson_test.html'  %}
             {% endif %}
         </div>
 
     <!-- Lesson finish -->
     <!-- ============================================================================================================================================ -->
     {% else %}
-        {% include 'src/components/user_course/lesson_start.html'  %}
+        {% include 'components/user_course/lesson_start.html'  %}
     {% endif %}
 </div>
 {% endblock course_content %}

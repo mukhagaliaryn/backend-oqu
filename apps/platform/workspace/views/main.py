@@ -32,7 +32,7 @@ def workspace(request):
         'first_chapter_ids': first_chapters,
         'completed_lessons_count': completed_lessons_count
     }
-    return render(request, 'app/platform/index.html', context)
+    return render(request, 'app/platform/workspace/page.html', context)
 
 
 # Resources page
@@ -51,7 +51,7 @@ def resources(request):
         'categories': categories,
         'user_course_ids': user_course_ids
     }
-    return render(request, 'app/platform/resources.html', context)
+    return render(request, 'app/platform/workspace/resources/page.html', context)
 
 
 # Course page
@@ -78,7 +78,7 @@ def course_detail(request, pk):
         'first_user_chapter': first_user_chapter,
         'first_user_lesson': first_user_lesson
     }
-    return render(request, 'pages/course/index.html', context)
+    return render(request, 'app/platform/workspace/course/page.html', context)
 
 
 # POST actions

@@ -2,13 +2,18 @@
 <!-- ============================================================================================================================================ -->
 <div class="max-w-xl w-full mx-auto py-16 grid gap-8">
     <!-- Lesson content -->
-    <!-- ============================================================================================================================================ -->
-    <div class="grid gap-2">
-        <div class="flex gap-2 items-center justify-center">
-            <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.2857 7V5.78571c0-.43393-.3482-.78571-.7778-.78571H6.06345c-.42955 0-.77777.35178-.77777.78571V16m0 0h-1c-.55229 0-1 .4477-1 1v1c0 .5523.44771 1 1 1h5m-4-3h4m7.00002-6v3c0 .5523-.4477 1-1 1h-3m8-3v8c0 .5523-.4477 1-1 1h-6c-.5523 0-1-.4477-1-1v-5.397c0-.2536.0963-.4977.2696-.683l2.434-2.603c.189-.2022.4535-.317.7304-.317h3.566c.5523 0 1 .4477 1 1Z"/>
+    <div class="grid gap-4">
+        <div class="flex gap-4 items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-box-icon lucide-file-box">
+                <path d="M14.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path
+                    d="M3 13.1a2 2 0 0 0-1 1.76v3.24a2 2 0 0 0 .97 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01Z" />
+                <path d="M7 17v5" />
+                <path d="M11.7 14.2 7 17l-4.7-2.8" />
             </svg>
-            <h1 class="text-2xl font-semibold">{{ user_lesson.lesson.title }}</h1>
+            <h1 class="text-2xl font-medium">{{ user_lesson.lesson.title }}</h1>
 
             {% if user_lesson.is_completed %}
                 <svg class="w-5 h-5 text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -18,14 +23,18 @@
         </div>
 
         <div class="flex items-center justify-center">
-            <div class="flex items-center gap-2 px-4 border-r">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/>
+            <div class="flex items-center gap-2 px-4 text-neutral-500 border-r border-neutral-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box-icon lucide-box">
+                    <path
+                        d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                    <path d="m3.3 7 8.7 5 8.7-5" />
+                    <path d="M12 22V12" />
                 </svg>
-                <span class="text-zinc-500 font-medium">{{ user_lesson.lesson.course }}</span>
+                <span>{{ user_lesson.lesson.course }}</span>
             </div>
 
-            <div class="px-4 border-r">
+            <div class="px-4 border-r border-neutral-200">
                 {% if user_lesson.status == 'no-started' %}
                     <div class="flex items-center gap-2 bg-amber-100 rounded-lg px-2 py-1">
                         <span class="p-1 rounded-full bg-amber-600"></span>
@@ -44,33 +53,43 @@
                 {% endif %}
             </div>
 
-            <div class="px-4 border-r">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            <div class="px-4 border-r border-neutral-200">
+                <div class="flex items-center gap-2 text-neutral-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock9-icon lucide-clock-9">
+                        <path d="M12 6v6H8" />
+                        <circle cx="12" cy="12" r="10" />
                     </svg>
-                    <span class="text-zinc-500">{{ user_lesson.lesson.duration }}мин</span>
+                    <span>{{ user_lesson.lesson.duration }}мин</span>
                 </div>
             </div>
 
             <div class="px-4">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
+                <div class="flex items-center gap-2 text-neutral-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-calendar-sync-icon lucide-calendar-sync">
+                        <path d="M11 10v4h4" />
+                        <path d="m11 14 1.535-1.605a5 5 0 0 1 8 1.5" />
+                        <path d="M16 2v4" />
+                        <path d="m21 18-1.535 1.605a5 5 0 0 1-8-1.5" />
+                        <path d="M21 22v-4h-4" />
+                        <path d="M21 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4.3" />
+                        <path d="M3 10h4" />
+                        <path d="M8 2v4" />
                     </svg>
-                    <span class="text-zinc-500">{{ user_lesson.lesson.last_update }}</span>
+                    <span>{{ user_lesson.lesson.last_update }}</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Lesson controls -->
-    <!-- ============================================================================================================================================ -->
     <div class="flex justify-center gap-2">
         {% if prev_lesson %}
             <a
                 href="{% url 'user_course_lesson' user_course.pk user_chapter.pk prev_lesson.pk %}" 
-                class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100"
+                class="flex items-center px-4 py-2 font-medium rounded-lg text-neutral-950 bg-white border border-neutral-200 transition-all focus:outline-none hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-100"
             >
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m15 19-7-7 7-7"/>
@@ -85,7 +104,7 @@
                 <input type="hidden" name="action" value="start_lesson">
                 <button
                     type="submit"
-                    class="px-4 py-2 font-medium text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500"
+                    class="px-4 py-2 font-medium text-white bg-neutral-950 rounded-lg hover:bg-neutral-800 focus:ring-2 focus:outline-none focus:ring-neutral-500"
                 >
                     <span>Сабақты бастау</span>
                 </button>
@@ -93,7 +112,7 @@
         {% elif user_lesson.status == 'in-progress' %}
             <a 
                 href="{% url 'user_course_lesson' user_course.id user_chapter.id user_lesson.id %}" 
-                class="px-4 py-2 font-medium text-white bg-zinc-950 rounded-lg transition-all hover:bg-zinc-800 focus:ring-2 focus:outline-none focus:ring-zinc-500"
+                class="px-4 py-2 font-medium text-white bg-neutral-950 rounded-lg transition-all hover:bg-neutral-800 focus:ring-2 focus:outline-none focus:ring-neutral-500"
             >
                 <span>Жалғастыру</span>
             </a>
@@ -103,7 +122,7 @@
             {% if can_access_next %}
                 <a 
                     href="{% url 'user_course_lesson' user_course.pk user_chapter.pk next_lesson.pk %}" 
-                    class="flex items-center px-4 py-2 font-medium rounded-lg text-zinc-900 bg-white border border-zinc-200 transition-all focus:outline-none hover:bg-zinc-100 focus:ring-2 focus:ring-zinc-100"
+                    class="flex items-center px-4 py-2 font-medium rounded-lg text-neutral-950 bg-white border border-neutral-200 transition-all focus:outline-none hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-100"
                 >
                     <span>Келесі сабақ</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -115,22 +134,21 @@
     </div>
 
     <!-- Lesson tab contents -->
-    <!-- ============================================================================================================================================ -->
     <div class="w-full">
-        <div class="border-b border-zinc-200">
+        <div class="border-b border-neutral-200">
             <ul 
                 class="flex flex-wrap -mb-px font-medium text-center" 
                 id="lesson-tab" 
                 data-tabs-toggle="#lesson-tab-content" 
-                data-tabs-active-classes="text-zinc-900 hover:text-zinc-900 border-zinc-900" 
-                data-tabs-inactive-classes="text-zinc-500 hover:text-zinc-600 border-zinc-100 hover:border-zinc-300" 
+                data-tabs-active-classes="text-neutral-950 hover:text-neutral-950 border-neutral-950" 
+                data-tabs-inactive-classes="text-neutral-500 hover:text-neutral-600 border-neutral-100 hover:border-neutral-300" 
                 role="tablist"
             >
                 <!-- Progress -->
                 {% if user_lesson.is_completed %}
                     <li class="me-2" role="presentation">
                         <button 
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-zinc-600 hover:border-zinc-300" 
+                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-neutral-600 hover:border-neutral-300" 
                             id="progress-tab" 
                             data-tabs-target="#progress" 
                             type="button" role="tab" aria-controls="progress" aria-selected="false"
@@ -142,7 +160,7 @@
                 <!-- Description -->
                 <li class="me-2" role="presentation">
                     <button 
-                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-zinc-600 hover:border-zinc-300" 
+                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-neutral-600 hover:border-neutral-300" 
                         id="description-tab" 
                         data-tabs-target="#description" 
                         type="button" role="tab" aria-controls="description" aria-selected="false"
@@ -181,13 +199,14 @@
                 <div class="hidden" id="progress" role="tabpanel" aria-labelledby="progress-tab">
                     <div class="px-4 py-8 flex gap-4 justify-center">
                         <div 
-                            class="radial-progress text-2xl font-semibold bg-zinc-100 text-green-600" 
-                            style="--value: {{ user_lesson.score }}; --size: 10rem;" 
+                            class="radial-progress text-2xl font-semibold bg-neutral-100 text-green-600" 
+                            style="--value: {{ user_lesson.score|floatformat:0 }}; --size: 10rem;" 
                             aria-valuenow="{{ user_lesson.score }}" 
                             role="progressbar"
                         >
                             {{ user_lesson.score }}%
                         </div>
+                        
 
                         <div class="grid gap-2">
                             <h1 class="text-base font-semibold">Нақты көрсеткіштер:</h1>
@@ -214,7 +233,7 @@
             <!-- Description -->
             <div class="hidden" id="description" role="tabpanel" aria-labelledby="description-tab">
                 {% if user_lesson.lesson.about %} 
-                    <div class="p-4 text-justify text-zinc-500">
+                    <div class="p-4 text-justify text-neutral-500">
                         {{ user_lesson.lesson.about|safe }}
                     </div>
                 {% else %}
@@ -222,7 +241,7 @@
                         <svg class="w-5 h-5 mx-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 6.2V5h11v1.2M8 5v14m-3 0h6m2-6.8V11h8v1.2M17 11v8m-1.5 0h3"/>
                         </svg>
-                        <span class="text-zinc-500">Сабақтың сипаттамасы жоқ</span>
+                        <span class="text-neutral-500">Сабақтың сипаттамасы жоқ</span>
                     </div>
                 {% endif %}
             </div>
@@ -232,34 +251,50 @@
                 <div class="p-4">
                     {% if user_lesson.lesson.text or user_lesson.lesson.video or user_lesson.lesson.test %}
                         {% if user_lesson.lesson.text %}
-                            <div class="flex justify-between p-4 ounded-lg border-b bg-white">
+                            <div class="flex justify-between p-4 border-b border-neutral-200 bg-white">
                                 <div class="flex gap-4 items-center">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-file-text-icon lucide-file-text">
+                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                        <path d="M10 9H8" />
+                                        <path d="M16 13H8" />
+                                        <path d="M16 17H8" />
                                     </svg>
-                                    <h1 class="text-zinc-900 font-medium">Мәтіндік контент</h1>
+                                    <h1 class="font-medium">Мәтіндік контент</h1>
                                 </div>
                             </div>
                         {% endif %}
 
                         {% if user_lesson.lesson.video %}
-                            <div class="flex justify-between p-4 rounded-lg border-b bg-white">
+                            <div class="flex justify-between p-4 border-b border-neutral-200 bg-white">
                                 <div class="flex gap-4 items-center">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Zm0 0-4 4m5 0H4m1 0 4-4m1 4 4-4m-4 7v6l4-3-4-3Z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-file-video-icon lucide-file-video">
+                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                        <path d="m10 11 5 3-5 3v-6Z" />
                                     </svg>
-                                    <h1 class="text-zinc-900 font-medium">Видео контент</h1>
+                                    <h1 class="font-medium">Видео контент</h1>
                                 </div>
                             </div>
                         {% endif %}
 
                         {% if user_lesson.lesson.test %}
-                            <div class="flex justify-between p-4 rounded-lg border-b bg-white">
+                            <div class="flex justify-between p-4 border-b border-neutral-200 bg-white">
                                 <div class="flex gap-4 items-center">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-3 5h3m-6 0h.01M12 16h3m-6 0h.01M10 3v4h4V3h-4Z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-list-todo-icon lucide-list-todo">
+                                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                                        <path d="m3 17 2 2 4-4" />
+                                        <path d="M13 6h8" />
+                                        <path d="M13 12h8" />
+                                        <path d="M13 18h8" />
                                     </svg>
-                                    <h1 class="text-zinc-900 font-medium">Тест</h1>
+                                    <h1 class="text-neutral-950 font-medium">Тест</h1>
                                 </div>
                             </div>
                         {% endif %}
@@ -268,7 +303,7 @@
                             <svg class="w-5 h-5 mx-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linejoin="round" stroke-width="1" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
                             </svg>
-                            <span class="text-zinc-500">Сабақтың жоспары жоқ</span>
+                            <span class="text-neutral-500">Сабақтың жоспары жоқ</span>
                         </div>
                     {% endif %}
                 </div>
@@ -278,30 +313,42 @@
             <div class="hidden" id="docs" role="tabpanel" aria-labelledby="docs-tab">
                 <div class="p-4">
                     {% for doc in user_lesson.lesson.docs.all %}
-                        <div class="flex justify-between p-4 mb-2 rounded-lg border bg-white">
+                        <div class="flex justify-between p-4 mb-2 rounded-lg border border-neutral-200 bg-white">
                             <div class="flex gap-4 items-center">
-                                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 3v4a1 1 0 0 1-1 1H5m4 10v-2m3 2v-6m3 6v-3m4-11v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-file-down-icon lucide-file-down">
+                                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                    <path d="M12 18v-6" />
+                                    <path d="m9 15 3 3 3-3" />
                                 </svg>
                                 <h1 class="font-medium">{{ doc.title }}</h1>
                             </div>
+
                             {% if user_lesson.is_completed %}
-                                <a href="{{ doc.file.url }}" target="_blank" class="flex p-2 rounded-lg hover:bg-zinc-100" download="true">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4"/>
+                                <a href="{{ doc.file.url }}" target="_blank" class="flex p-2 rounded-lg hover:bg-neutral-100" download="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
+                                        <path d="M12 15V3" />
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <path d="m7 10 5 5 5-5" />
                                     </svg>
                                 </a>
                             {% else %}
-                                <div class="flex text-zinc-300" data-tooltip-target="tooltip-less_doc-{{ doc.id }}">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4"/>
+                                <div class="flex text-neutral-300" data-tooltip-target="tooltip-less_doc-{{ doc.id }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
+                                        <path d="M12 15V3" />
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <path d="m7 10 5 5 5-5" />
                                     </svg>
                                 </div>
 
                                 <div 
                                     id="tooltip-less_doc-{{ doc.id }}" 
                                     role="tooltip" 
-                                    class="absolute z-10 invisible inline-block px-3 py-2 font-medium text-white transition-opacity duration-300 bg-zinc-900 rounded-lg shadow-xs opacity-0 tooltip"
+                                    class="absolute z-10 invisible inline-block px-3 py-2 font-medium text-white transition-opacity duration-300 bg-neutral-950 rounded-lg shadow-xs opacity-0 tooltip"
                                 >
                                     Алдымен сабақты өтіп шығу қажет!
                                     <div class="tooltip-arrow" data-popper-arrow></div>
@@ -313,7 +360,7 @@
                             <svg class="w-5 h-5 mx-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linejoin="round" stroke-width="1" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
                             </svg>
-                            <span class="text-zinc-500">Сабақтың материалдары жоқ</span>
+                            <span class="text-neutral-500">Сабақтың материалдары жоқ</span>
                         </div>
                     {% endfor %}
                 </div>

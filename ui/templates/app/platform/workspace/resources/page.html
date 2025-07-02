@@ -8,8 +8,8 @@
 {% block workspace_content %}
 <div class="grid gap-8">
     <div>
-        <h1 class="text-2xl font-semibold">Ресурстар</h1>
-        <span class="text-zinc-500">
+        <h1 class="text-2xl font-medium">Ресурстар</h1>
+        <span class="text-neutral-500">
             Категория бойынша тізбектелген курстар
         </span>
     </div>
@@ -18,29 +18,29 @@
     <div class="grid gap-16">
         {% for category in categories %}
             <div class="grid gap-4">
-                <div class="flex gap-2 items-center px-4 py-2 bg-zinc-50 rounded-lg">
+                <div class="flex gap-2 items-center px-4 py-2 bg-neutral-50 rounded-lg">
                     <div>
-                        <h1 class="text-base font-semibold">{{ category.name }}</h1>
-                        <span class="text-zinc-500">
+                        <h1 class="text-base font-medium">{{ category.name }}</h1>
+                        <span class="text-neutral-500">
                             {{ category.name }} бойынша ішкі категория мен курстар секциясы
                         </span>
                     </div>
                 </div>
 
                 <!-- Subcategories -->
-                <div class="w-full overflow-x-auto overflow-y-hidden border-b border-zinc-200">
+                <div class="w-full overflow-x-auto overflow-y-hidden border-b border-neutral-200">
                     <ul 
                         class="flex w-full overflow-x-auto -mb-px font-medium text-center" 
                         id="subcategory-tab" 
                         data-tabs-toggle="#subcategory-tab-content" 
                         role="tablist"
-                        data-tabs-active-classes="text-zinc-900 hover:text-zinc-900 border-zinc-900" 
-                        data-tabs-inactive-classes="text-zinc-500 hover:text-zinc-600 border-zinc-100 hover:border-zinc-300"
+                        data-tabs-active-classes="text-neutral-900 hover:text-neutral-950 border-neutral-950" 
+                        data-tabs-inactive-classes="text-neutral-500 hover:text-neutral-600 border-neutral-100 hover:border-neutral-300"
                     >
                         {% for sub_category in category.sub_categories.all %}
                             <li class="me-2 whitespace-nowrap" role="presentation">
                                 <button 
-                                    class="inline-block p-4 border-b-2 rounded-t-lg hover:text-zinc-600 hover:border-zinc-300" 
+                                    class="inline-block p-4 border-b-2 rounded-t-lg hover:text-neutral-600 hover:border-neutral-300" 
                                     id="{{ sub_category.slug }}-tab" 
                                     data-tabs-target="#{{ sub_category.slug }}" 
                                     type="button" 
@@ -60,34 +60,34 @@
                             {% if sub_category.sub_courses.count %}
                                 <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                                     {% for course in sub_category.sub_courses.all %}
-                                        <div class="border rounded-lg overflow-hidden">
-                                            <a href="{% url 'course_detail' course.pk %}" class="aspect-video bg-zinc-100 overflow-hidden flex justify-center items-center">
+                                        <div class="border border-neutral-200 rounded-lg overflow-hidden">
+                                            <a href="{% url 'course_detail' course.pk %}" class="aspect-video bg-neutral-100 overflow-hidden flex justify-center items-center">
                                                 {% if course.poster %}
                                                     <img src="{{ course.poster.url }}" class="w-full" alt="{{ course.name }}">
                                                 {% else %}
                                                     <div>
-                                                        <svg class="w-20 h-20 text-zinc-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                        <svg class="w-20 h-20 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/>
                                                         </svg>
                                                     </div>
                                                 {% endif %}
                                                 </a>
                                             <div class="grid gap-4 pt-4">
-                                                <a href="{% url 'course_detail' course.pk %}" class="block mx-2 px-2 rounded hover:bg-zinc-100">
-                                                    <h1 class="text-base font-semibold line-clamp-1">{{ course.name }}</h1>
-                                                    <span class="text-zinc-500">{{ course.sub_category.name }}</span>
+                                                <a href="{% url 'course_detail' course.pk %}" class="block mx-2 px-2 rounded hover:bg-neutral-100">
+                                                    <h1 class="text-base font-medium line-clamp-1">{{ course.name }}</h1>
+                                                    <span class="text-neutral-500">{{ course.sub_category.name }}</span>
                                                 </a>
 
-                                                <div class="flex items-center justify-between p-2 border-t">
+                                                <div class="flex items-center justify-between p-2 border-t border-neutral-200">
                                                     <div class="flex gap-2 items-center">
                                                         <div class="flex -space-x-4 rtl:space-x-reverse">
                                                             {% if course.authors.count > 1 %}
                                                                 <!-- If more authors -->
                                                                 {% for author in course.authors.all %}
                                                                     {% if author.avatar %}
-                                                                        <img class="w-8 h-8 rounded-full border-white" src="{{ author.avatar.url }}" alt="{{ author.username }}" />
+                                                                        <img class="w-6 h-6 rounded-full border-white" src="{{ author.avatar.url }}" alt="{{ author.username }}" />
                                                                     {% else %}
-                                                                        <div class="w-8 h-8 flex items-center justify-center rounded-full border-white bg-zinc-100 text-zinc-950 text-base">
+                                                                        <div class="w-6 h-6 flex items-center justify-center rounded-full border-white bg-neutral-100 text-neutral-950 text-base">
                                                                             {{ author.first_name|first|upper }}{{ author.last_name|first|upper }}
                                                                         </div>
                                                                     {% endif %}
@@ -95,16 +95,16 @@
                                                             {% else %}
                                                                 <!-- If author single -->
                                                                 {% if course.authors.first.avatar %}
-                                                                    <img class="w-8 h-8 rounded-full border-white" src="{{ course.authors.first.avatar.url }}" alt="{{ course.authors.first.username }}"
+                                                                    <img class="w-6 h-6 rounded-full border-white" src="{{ course.authors.first.avatar.url }}" alt="{{ course.authors.first.username }}"
                                                                         >
                                                                 {% else %}
-                                                                    <div class="w-8 h-8 rounded-full border-white bg-zinc-100 flex items-center justify-center text-zinc-950 text-base">
+                                                                    <div class="w-6 h-6 rounded-full border-white bg-neutral-100 flex items-center justify-center text-neutral-950 text-base">
                                                                         {{ course.authors.first.first_name|first|upper }}{{ course.authors.first.last_name|first|upper }}
                                                                     </div>
                                                                 {% endif %}
                                                             {% endif %}
                                                         </div>
-                                                        <span class="text-zinc-500 font-medium">
+                                                        <span class="text-neutral-500 font-medium">
                                                             {{ course.authors.first.first_name }} {{ course.authors.first.last_name }}
                                                             {% if course.authors.count > 1 %}және т.б.{% endif %}
                                                         </span>
@@ -119,9 +119,9 @@
                                                             {% csrf_token %}
                                                             <button
                                                                 type="submit"
-                                                                class="p-2 rounded-lg hover:bg-zinc-100"
+                                                                class="p-2 rounded-lg hover:bg-neutral-100"
                                                             >
-                                                                <svg class="w-5 h-5 text-zinc-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                                <svg class="w-5 h-5 text-neutral-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 12h14m-7 7V5"/>
                                                                 </svg>
                                                             </button>
@@ -137,7 +137,7 @@
                                     <svg class="w-10 h-10 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/>
                                     </svg>
-                                    <span class="text-zinc-500">Әлі курстар жүктелмеген</span>
+                                    <span class="text-neutral-500">Әлі курстар жүктелмеген</span>
                                 </div>
                             {% endif %}
                         </div>
@@ -146,6 +146,5 @@
             </div>
         {% endfor %}
     </div>
-
 </div>
 {% endblock workspace_content %}
