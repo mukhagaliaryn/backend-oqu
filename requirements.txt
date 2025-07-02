@@ -13,6 +13,7 @@ Django==5.2.3
 django-admin-interface==0.30.1
 django-browser-reload==1.18.0
 django-colorfield==0.14.0
+django-cors-headers==4.7.0
 django-modeltranslation==0.19.15
 django-storages==1.14.6
 django-summernote==0.8.20.0
